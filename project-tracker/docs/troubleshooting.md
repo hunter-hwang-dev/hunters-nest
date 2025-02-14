@@ -1,6 +1,6 @@
 # 🏛️ git init 이후의 변천사 ⏳
 
-## 👎 기능 구현 미흡
+## 👎 미흡한 기능 개선!
 
 ### ⚠️ <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">feat: parent 층위 toggle 하드코딩</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">child까지 단번에 해결!</span>
 
