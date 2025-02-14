@@ -1,5 +1,7 @@
-// import { FOLDER_CLOSED } from "./paths.js";
+//parent 1 클릭 시 sub-tree 접히게 하는 것부터 구현하기
 
-// console.log(FOLDER_CLOSED); // 콘솔에서 값 확인
-
-// document.querySelector("#here").innerHTML = FOLDER_CLOSED;
+const parent1 = document.getElementById("parent-1");
+const subtree1 = document.getElementById("parent-1-sub");
+parent1.addEventListener("click", function () {
+  subtree1.classList.toggle("display-none");
+});

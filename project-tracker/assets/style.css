@@ -25,6 +25,7 @@ ul {
   margin-left: 28px;
   background-color: #ddd;
   border-radius: 4px;
+  display: block;
 }
 .folder {
   display: flex;
@@ -40,4 +41,7 @@ ul {
 }
 .white {
   background-color: #fff;
+}
+.display-none {
+  display: none;
 }
