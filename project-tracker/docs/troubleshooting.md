@@ -1,5 +1,24 @@
 # 🏛️ git init 이후의 변천사 ⏳
 
+## 👎 기능 구현 미흡
+
+### ⚠️ <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">feat: parent 층위 toggle 하드코딩</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>
+
+```
+document.addEventListener("click", function (event) {
+  // 클릭된 요소가 .folder 클래스를 가진 경우에만 실행
+  if (event.target.classList.contains("folder")) {
+    const subtree = event.target.nextElementSibling; //무조건 folder 다음 tag를 찾는다.
+
+    // sub-tree가 존재하면 토글
+    if (subtree && subtree.classList.contains("sub-tree")) { //folder 다음에 태그가 있고, 그 클래스가 sub-tree인 경우
+      subtree.classList.toggle("display-none");
+    }
+  }
+});
+
+```
+
 ## 🚧 SyntaxError
 
 ### 🚨 <span class="highlight" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 56, 0.5)">Cannot use import statement outside a module</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>
