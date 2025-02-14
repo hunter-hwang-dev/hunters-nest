@@ -15,6 +15,15 @@ document.addEventListener("click", function (event) {
 });
 ```
 
+## 🚧 404 Not Found
+
+### <span class="highlight" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 56, 0.5)"> GET ...project-tracker/src/tree net::ERR_ABORTED 404 (Not Found) </span><span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">export { Tree, TreeNode }; 로 해결!</span>
+
+- ERR_ABORTED: 요청이 중단(Aborted), 주로 파일이 없거나 경로가 잘못되었을 때
+- 404 (Not Found): 서버가 요청한 파일(tree)을 찾을 수 없다
+
+원인: export class Tree 만 적용해, TreeNode를 export하지 않아서 생긴 문제.
+
 ## 🚧 SyntaxError
 
 ### 🚨 <span class="highlight" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 56, 0.5)">Cannot use import statement outside a module</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>

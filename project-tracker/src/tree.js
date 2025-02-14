@@ -20,7 +20,7 @@ class TreeNode {
   }
 }
 
-export class Tree {
+class Tree {
   constructor(key, value = key) {
     this.root = new TreeNode(key, value); //이러면 Object 안에 순서 없이 중복 없이 TreeNode들이 쌓일 것임.
   }
@@ -72,6 +72,7 @@ export class Tree {
   }
 }
 
+export { Tree, TreeNode };
 /*
 
 The main operations of a tree data structure are:
