@@ -2,7 +2,7 @@
 
 ## 👎 기능 구현 미흡
 
-### ⚠️ <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">feat: parent 층위 toggle 하드코딩</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>
+### ⚠️ <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">feat: parent 층위 toggle 하드코딩</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">child까지 단번에 해결!</span>
 
 ```
 document.addEventListener("click", function (event) {
@@ -13,15 +13,9 @@ document.addEventListener("click", function (event) {
     }
   }
 });
-
 ```
 
 ## 🚧 SyntaxError
-
-### 🚨 <span class="highlight" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 56, 0.5)">Cannot use import statement outside a module</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>
-
-1. 가장 최상단에서 실행되는 파일에 `<script> type="module"` 태그 추가
-2. 루트 디렉토리에 있는 `package.json` 파일에 `"type": "module"`를 추가
 
 ### 🚨 <span class="highlight" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 56, 0.5)">Cannot use import statement outside a module</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>
 
