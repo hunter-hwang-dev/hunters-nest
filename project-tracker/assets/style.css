@@ -5,6 +5,32 @@ body {
   letter-spacing: 0.1px;
   color: #333;
 }
+.tree,
+.sub-tree {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.folder {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sub-tree {
+  /* display: none; 기본적으로 숨김 */
+}
+
+.folder.open + .sub-tree {
+  display: block; /* 열릴 때 표시 */
+}
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
 .file-name {
   display: flex;
   align-items: center;
@@ -17,10 +43,11 @@ body {
   width: 18px;
   height: 18px;
 }
-@font-face {
-  font-family: "Pretendard-Regular";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-    format("woff");
-  font-weight: 400;
-  font-style: normal;
+.sub-directory {
+  margin-left: 28px;
+  background-color: #ddd;
+  border-radius: 4px;
+}
+.white {
+  background-color: #fff;
 }

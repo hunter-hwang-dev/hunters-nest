@@ -3,21 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my expectations: yay high</title>
-    <link id="favicon" rel="icon" href="assets/favicon.ico" />
-    <link rel="stylesheet" href="assets/style.css" />
+    <title>Tree Structure</title>
+    <!-- <link rel="stylesheet" href="assets/style.css" /> -->
   </head>
   <body>
-    <div>
-      <div class="file-name">
-        <img class="file-icon" src="assets/icons/folder-closed.svg" />honestly I
-        gotta write it in vanilla js
-      </div>
-      <div class="file-name">
-        <img class="file-icon" src="assets/icons/folder-closed.svg" />my vision:
-        taking projects as nodes
-      </div>
-    </div>
-    <script src="src/script.js"></script>
+    <style>
+      @font-face {
+        font-family: "Pretendard-Regular";
+        src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+          format("woff");
+        font-weight: 400;
+        font-style: normal;
+      }
+      body {
+        font-family: "Pretendard", sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 0.1px;
+        color: #333;
+      }
+      li,
+      ul {
+        list-style: none;
+        padding-left: 0px;
+      }
+      .tree {
+        border: #333 1px solid;
+        border-radius: 6px;
+      }
+      .sub-tree {
+        margin-left: 28px;
+        background-color: #ddd;
+        border-radius: 4px;
+      }
+      .folder {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 4px 8px;
+        border-radius: 6px;
+        transition: background-color 0.2s ease;
+      }
+      .file-icon {
+        width: 18px;
+        height: 18px;
+      }
+      .white {
+        background-color: #fff;
+      }
+    </style>
+
+    <ul class="tree">
+      <li>
+        <div class="folder">📁 parent 1</div>
+        <ul class="sub-tree">
+          <div class="folder">📁 child 1</div>
+          <div class="folder">📁 child 2</div>
+        </ul>
+      </li>
+      <li>
+        <div class="folder">📁 parent 2</div>
+        <ul class="sub-tree">
+          <div class="folder">📁 child 1</div>
+          <div class="folder">📁 child 2</div>
+          <ul class="sub-tree white">
+            <div class="folder">📁 grandchild 1</div>
+            <div class="folder">📁 grandchild 2</div>
+            <ul class="sub-tree">
+              <div class="folder">📁 grand-grandchild 1</div>
+            </ul>
+            <div class="folder">📁 grandchild 3</div>
+          </ul>
+          <div class="folder">📁 child 3</div>
+        </ul>
+      </li>
+      <li>
+        <div class="folder">📁 parent 3</div>
+        <ul class="sub-tree">
+          <div class="folder">📁 child 1</div>
+        </ul>
+      </li>
+    </ul>
+
+    <script type="module" src="src/script.js"></script>
   </body>
 </html>

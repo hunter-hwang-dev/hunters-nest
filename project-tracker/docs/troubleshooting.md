@@ -1,3 +1,19 @@
+# 🏛️ git init 이후의 변천사 ⏳
+
+## 🚧 SyntaxError
+
+### 🚨 <span class="highlight" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 56, 0.5)">Cannot use import statement outside a module</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>
+
+1. 가장 최상단에서 실행되는 파일에 `<script> type="module"` 태그 추가
+2. 루트 디렉토리에 있는 `package.json` 파일에 `"type": "module"`를 추가
+
+### 🚨 <span class="highlight" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 56, 0.5)">Cannot use import statement outside a module</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>
+
+1. 가장 최상단에서 실행되는 파일에 `<script> type="module"` 태그 추가
+2. 루트 디렉토리에 있는 `package.json` 파일에 `"type": "module"`를 추가
+
+<div style="height: 8px; background-color: #333; margin-top: 16px; margin-bottom: 16px"></div>
+
 # 🗿 git init 이전의 변천사 🦕
 
 ## 👎 기능 구현 미흡

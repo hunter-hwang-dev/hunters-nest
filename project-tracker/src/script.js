@@ -1,9 +1,5 @@
-const fileIcons = document.querySelectorAll(".file-icon");
+// import { FOLDER_CLOSED } from "./paths.js";
 
-fileIcons.forEach((fileIcon) => {
-  fileIcon.addEventListener("click", () => {
-    fileIcon.src = fileIcon.src.includes("folder-closed.svg")
-      ? "assets/icons/folder-open.svg"
-      : "assets/icons/folder-closed.svg";
-  });
-});
+// console.log(FOLDER_CLOSED); // 콘솔에서 값 확인
+
+// document.querySelector("#here").innerHTML = FOLDER_CLOSED;
