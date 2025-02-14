@@ -20,6 +20,12 @@
 
 <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)"> 종료 목표일</span> 한 달이면 충분하겠지? `2025-03-14`
 
+## 🛋️ 해낼 때마다 여기로 옮길 것!
+
+### ⚡ 바로 했어요!
+
+### 💭 이렇게 하자고:
+
 ## 🛣️ 다음 목표?
 
 ### ⚡ 바로 합시다!
