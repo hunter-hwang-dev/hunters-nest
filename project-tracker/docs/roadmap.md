@@ -8,6 +8,11 @@
 
 <span class="highlight pink" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 245, 0.5)">Figma & FigJam</span> `3월 초 이전에 취소` 한 달 분량만 사용, 플랜 취소 약관 확인 후!
 
+## 일일 목표
+
+- 하루에 (삽질, 공부하는 시간 포함) 4시간 개발을 목표로 하되, 꼭 매일 할 필요는 없음. 주말은 쉬고, 주 4일제 정도라고 생각하기.
+- 개발 외에도 매일 30분씩 운동, 삼시세끼 잘 챙겨먹기, 7시간 이상 숙면하기를 꼭 지킬 것. 건강이 우선!
+
 ## 🗺️ 왜 시작했고, 지금 어디?
 
 <span class="highlight" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 56, 0.5)">발제</span> 개발 블로그를 처음부터 만드는 것은 부담스러워!
