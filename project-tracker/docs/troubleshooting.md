@@ -6,11 +6,8 @@
 
 ```
 document.addEventListener("click", function (event) {
-  // 클릭된 요소가 .folder 클래스를 가진 경우에만 실행
-  if (event.target.classList.contains("folder")) {
+  if (event.target.classList.contains("folder")) { //folder 클릭되면
     const subtree = event.target.nextElementSibling; //무조건 folder 다음 tag를 찾는다.
-
-    // sub-tree가 존재하면 토글
     if (subtree && subtree.classList.contains("sub-tree")) { //folder 다음에 태그가 있고, 그 클래스가 sub-tree인 경우
       subtree.classList.toggle("display-none");
     }
