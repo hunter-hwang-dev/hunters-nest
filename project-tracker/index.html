@@ -3,21 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my expectations: yay high</title>
-    <link id="favicon" rel="icon" href="assets/favicon.ico" />
+    <title>Tree Structure</title>
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
-    <div>
-      <div class="file-name">
-        <img class="file-icon" src="assets/icons/folder-closed.svg" />honestly I
-        gotta write it in vanilla js
-      </div>
-      <div class="file-name">
-        <img class="file-icon" src="assets/icons/folder-closed.svg" />my vision:
-        taking projects as nodes
-      </div>
-    </div>
-    <script src="src/script.js"></script>
+    <ul class="tree">
+      <li>
+        <div class="folder">📁 parent 1</div>
+        <ul class="sub-tree">
+          <li><div class="folder">📁 child 1</div></li>
+          <li><div class="folder">📁 child 2</div></li>
+        </ul>
+      </li>
+      <li>
+        <div class="folder">📁 parent 2</div>
+        <ul class="sub-tree">
+          <li><div class="folder">📁 child 1</div></li>
+          <li>
+            <div class="folder">📁 child 2</div>
+            <ul class="sub-tree white">
+              <li><div class="folder">📁 grandchild 1</div></li>
+              <li>
+                <div class="folder">📁 grandchild 2</div>
+                <ul class="sub-tree">
+                  <li><div class="folder">📁 grand-grandchild 1</div></li>
+                </ul>
+              </li>
+              <li><div class="folder">📁 grandchild 3</div></li>
+            </ul>
+          </li>
+          <li><div class="folder">📁 child 3</div></li>
+        </ul>
+      </li>
+      <li>
+        <div class="folder">📁 parent 3</div>
+        <ul class="sub-tree">
+          <li><div class="folder">📁 child 1</div></li>
+        </ul>
+      </li>
+    </ul>
+
+    <script type="module" src="src/script.js"></script>
   </body>
 </html>

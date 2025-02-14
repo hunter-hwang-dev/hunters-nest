@@ -1,9 +1,8 @@
-const fileIcons = document.querySelectorAll(".file-icon");
-
-fileIcons.forEach((fileIcon) => {
-  fileIcon.addEventListener("click", () => {
-    fileIcon.src = fileIcon.src.includes("folder-closed.svg")
-      ? "assets/icons/folder-open.svg"
-      : "assets/icons/folder-closed.svg";
-  });
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("folder")) {
+    const subtree = event.target.nextElementSibling;
+    if (subtree && subtree.classList.contains("sub-tree")) {
+      subtree.classList.toggle("display-none");
+    }
+  }
 });

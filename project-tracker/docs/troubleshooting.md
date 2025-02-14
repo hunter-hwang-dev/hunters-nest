@@ -1,3 +1,29 @@
+# 🏛️ git init 이후의 변천사 ⏳
+
+## 👎 미흡한 기능 개선!
+
+### ⚠️ <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">feat: parent 층위 toggle 하드코딩</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">child까지 단번에 해결!</span>
+
+```
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("folder")) { //folder 클릭되면
+    const subtree = event.target.nextElementSibling; //무조건 folder 다음 tag를 찾는다.
+    if (subtree && subtree.classList.contains("sub-tree")) { //folder 다음에 태그가 있고, 그 클래스가 sub-tree인 경우
+      subtree.classList.toggle("display-none");
+    }
+  }
+});
+```
+
+## 🚧 SyntaxError
+
+### 🚨 <span class="highlight" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 56, 0.5)">Cannot use import statement outside a module</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>
+
+1. 가장 최상단에서 실행되는 파일에 `<script> type="module"` 태그 추가
+2. 루트 디렉토리에 있는 `package.json` 파일에 `"type": "module"`를 추가
+
+<div style="height: 8px; background-color: #333; margin-top: 16px; margin-bottom: 16px"></div>
+
 # 🗿 git init 이전의 변천사 🦕
 
 ## 👎 기능 구현 미흡
@@ -55,7 +81,7 @@
     └── 🖍️style.css
 ```
 
-4. 탭 활성화 여부에 따라 `favicon`을 다르게 적용하려 했지만 <span id="talk-later"> [실패!]() </span> 중간 과정에 favicon이 너무 많아 한 폴더로 정리했다가, 거두절미하고 하나의 `🏔️favicon.ico` 만을 남겼다. '꾸미기용' 파일을 `📁assets`에 모았다.
+4. 탭 활성화 여부에 따라 `favicon`을 다르게 적용하려 했지만 <span id="talk-later"> [실패!](#-기능-구현-미흡) </span> 중간 과정에 favicon이 너무 많아 한 폴더로 정리했다가, 거두절미하고 하나의 `🏔️favicon.ico` 만을 남겼다. '꾸미기용' 파일을 `📁assets`에 모았다.
 
 ```
 └── 📁project-tracker
