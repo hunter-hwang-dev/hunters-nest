@@ -6,6 +6,14 @@
 
 ## 📈 검색해야 알아낼 수 있는 것들로 코드 개선!
 
+### 😳 <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">파일 든 폴더 닫을 때도 svg 변경</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span> 더 나은 솔루션?
+
+```
+const currentIcon = getComputedStyle(event.target).getPropertyValue(
+        "--icon"
+      );
+```
+
 ### 😳 <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">stylesheet만 이용해서 img 끼워넣는 법</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>
 
 ```
