@@ -53,7 +53,7 @@ document.addEventListener("click", function (event) {
 
 # 🗿 git init 이전의 변천사 🦕
 
-## 👎 기능 구현 미흡
+## 🧟 방법이 정말 없나?
 
 ### ⚠️ <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">탭 비활성화 시 favicon 바꾸기 어렵다</span>
 
@@ -69,11 +69,13 @@ document.addEventListener("click", function (event) {
 
 ## 💾 버전 관리 이슈
 
-### 🚨 <span class="highlight" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 56, 0.5)">hunters-nest/project-tracker를 git init했다가 되돌림</span>
+### 🚨 <span class="highlight" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 56, 0.5)">hunters-nest/project-tracker를 git init했는데, 되돌리고파!</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>
 
-<div class="indent" style="padding: 0 0 0 30px">개발 블로그에 project-tracker 외에도 여러 기능이 추가될 것이기에, hunters-nest를 레포지토리로 두고 branch로 기능별 관리를 해야 함. 기본적인 파일 구조를 정리한 뒤에 init한 것이라 rm -r .git으로 삭제 시도했으나 실패.</div>
+- 개발 블로그에 project-tracker 외에도 여러 기능이 추가될 것이기에, hunters-nest를 레포지토리로 두고 branch로 기능별 관리를 해야 함.
+- 기본적인 파일 구조를 정리한 뒤에 init한 것이라 `.git` 지우고 새로 init repository 해주면 되는 상황.
 
-### ✅ <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">vs code 끄고, 탐색기에서 project-tracker/.git 폴더 삭제해 해결</span>
+1. vs code 터미널에서 `rm -r .git`으로 삭제 여러 번 시도, 권한 문제로 실패
+2. 나 스스로를 못 지우는구나! vs code 끄고, 탐색기에서 `project-tracker/.git` 폴더 삭제, 해결!
 
 ## 🏗️ 프로젝트 구조 정리 시행착오
 
@@ -121,7 +123,7 @@ document.addEventListener("click", function (event) {
     └── 📜script.js
 ```
 
-5. `📁assets` 내에 들어갈 파일의 경로를 자꾸 이동하다 보니, `👉index.html`과 `📜script.js` 안의 내용을 자꾸 수정해야 했다. 프로젝트가 커질수록 파일 경로 문제가 생길 것 같았다. `환경 변수`를 저장하는 스크립트를 따로 `📜paths.js`로 두어 이들을 `📁src`에 한데 묶었다.
+5. `📁assets` 내에 들어갈 파일의 경로를 자꾸 이동하다 보니, `👉index.html`과 `📜script.js` 안의 내용을 자꾸 수정해야 했다. 프로젝트가 커질수록 파일 경로 문제가 생길 것 같았다. `환경 변수`를 저장하는 스크립트를 따로 `📜paths.js`로 두어 이들을 `📁src`에 한데 묶었다. (단, `import/export` 문법 쓰려면 `package.json`이 필요함. 나중에 `src/tree.js` 가져올 때 알았음)
 
 ```
 └── 📁project-tracker
