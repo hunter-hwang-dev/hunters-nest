@@ -1,0 +1,38 @@
+body {
+  font-family: "Pretendard";
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+button {
+  all: unset;
+}
+.title {
+  padding: 10px;
+  font-size: 24px;
+  font-weight: 600;
+}
+.badge {
+  background-color: gray;
+  border-radius: 16px;
+  padding: 4px 12px 4px 12px;
+  color: white;
+}
+.block {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.나란히 {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.나란히 > div {
+  background-color: #a1a1a1;
+  color: white;
+  padding: 10px;
+  margin-left: 4px;
+  border-radius: 4px;
+  font-family: "Space Mono";
+}
