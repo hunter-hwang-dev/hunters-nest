@@ -15,7 +15,7 @@
 
 ## 🗺️ 왜 시작했고, 지금 어디?
 
-#### `2025-02-14 금요일`
+#### `2025-02-14 금요일` 밤에 시작함
 
 ✨ <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">시작일</span>
 
@@ -23,7 +23,7 @@
 
 🎯 <span class="highlight" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 56, 0.5)">MVP</span> 진행 상황을 간결하게 기록, 공유하는 트래커부터 만들자.
 
-#### `2025-02-15 토요일`
+#### `2025-02-15 토요일` 열정 활활 밤새 불타다
 
 ✨ <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)"> 첫 커밋 & 레포지토리 게시</span>
 
