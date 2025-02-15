@@ -38,7 +38,7 @@
 - [하드코딩 후 범용성 고민](troubleshooting.md/#-미흡한-기능-개선): `event.target` 활용해 해결!
 - 예상 소요 시간은 `20분` 이었으나, 실제 구현까지 `1시간 20분` 가량 걸림. 다음 `바로 할 일`은 처음 떠오르는 예상 시간에 `* 6` 할 것.</details>
 
-<span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)"> 첫 머지</span>
+<span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">#1 첫 머지</span>
 
 <details style="padding-bottom: 8px;">
 <summary style="padding-bottom: 8px">&nbsp;&nbsp;<span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">src/tree.js 가져오기</span>
@@ -78,7 +78,7 @@
 
 🏗️ <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)"> 프로젝트 구조 수정 #7</span>
 
-<span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)"> 2번째 머지</span>
+<span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)"> #2 번째 머지</span>
 
 #### `2025-02-16 일요일` 휴식!
 
