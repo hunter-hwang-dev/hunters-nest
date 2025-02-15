@@ -1,12 +1,31 @@
 // import { Tree } from "./tree.js";
 
-const iconFolderOpen = "icons/folder-open.svg";
+const folderOpen = "icons/folder-open.svg";
+const fileFolderClosed = "icons/folder-files-closed.svg";
+const fileFolderOpen = "icons/folder-files-open.svg";
+
+const folders = document.querySelectorAll(".folder");
+folders.forEach((folder) => {
+  const subtree = folder.nextElementSibling;
+  if (subtree && subtree.classList.contains("sub-tree")) {
+    folder.style.setProperty("--icon", ` url(${fileFolderClosed})`);
+    //subtree 있는 folder만 파란색(닫힘)으로 기본
+  }
+});
 
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("folder")) {
     const subtree = event.target.nextElementSibling;
     if (subtree && subtree.classList.contains("sub-tree")) {
-      event.target.style.setProperty("--icon", ` url(${iconFolderOpen})`);
+      const currentIcon = getComputedStyle(event.target).getPropertyValue(
+        "--icon"
+      );
+      if (currentIcon.includes(fileFolderClosed)) {
+        event.target.style.setProperty("--icon", `url(${fileFolderOpen})`);
+      } else {
+        event.target.style.setProperty("--icon", `url(${fileFolderClosed})`);
+      }
+
       subtree.classList.toggle("display-block");
     }
   }
