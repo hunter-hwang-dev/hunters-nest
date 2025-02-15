@@ -48,16 +48,16 @@
 
 ## ⚡ 바로 할 일!
 
-<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)"> 찍어낸 Object를 불러와, DOM에 올려 html 반영하기</span>
+<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)"> 이모지로 때웠던 폴더를 `svg`로 재교체</span>
 
 ## 🛣️ 그 다음 목표?
+
+<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)"> 찍어낸 Object를 불러와, DOM에 올려 html 반영하기</span>
 
 <span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)"> 쿠키 같은 것 이용해 파일 트리 구조 업데이트 최소화</span>
 
 - 유저 읽기 전용: 쿠키 받아와서, 버전 업데이트 있음 - 서버에서 정보 불러와 갱신
 - 버전 업데이트 없음, 쿠키 없음 - 갱신
 - 버전 업데이트 없음, 쿠키 있음 - 업데이트하지 않음으로 고물가 시대에 몇 바이트 단수 절약하기 (의미가 있을지?)
-
-<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)"> 이모지로 때웠던 폴더를 `svg`로 재교체</span>
 
 <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)"> 종료 목표일</span> 한 달이면 충분하겠지? `2025-03-14`
