@@ -15,6 +15,13 @@ function bubbleSort(numbers) {
   for (let i = 0; i < numbers.length; i++) {
     for (let j = i + 1; j < numbers.length; j++) {
       console.log(numbers[i], numbers[j]);
+      //뒤에 숫자가 작으면 뒤집어
+      if (numbers[i] > numbers[j]) {
+        var lower = numbers[j];
+        numbers[j] = numbers[i];
+        numbers[i] = lower;
+      }
+      console.log(numbers);
     }
   }
 }
