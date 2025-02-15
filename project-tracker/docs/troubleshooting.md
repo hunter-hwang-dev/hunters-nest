@@ -1,8 +1,18 @@
 # 🏛️ git init 이후의 변천사 ⏳
 
-## 📈 미흡한 기능 개선!
+## 😏 지루하지만 스스로 refactor할 수 있어
 
-### 😳 <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">stylesheet만 이용해서 img 끼워넣는 법</span>
+### ⏳ <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">처음 켤 때 sub-tree 닫아두기</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>
+
+## 📈 검색해야 알아낼 수 있는 것들로 코드 개선!
+
+### 😳 <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">stylesheet만 이용해서 img 끼워넣는 법</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>
+
+```
+.folder::before {
+  content: var("이미지경로");
+}
+```
 
 ### 😳 <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">img 어떻게 끼워넣지?</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>
 
