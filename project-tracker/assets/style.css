@@ -35,6 +35,11 @@ ul {
   border-radius: 6px;
   transition: background-color 0.2s ease;
 }
+.folder::before {
+  content: url("icons/folder-closed.svg");
+  width: 18px;
+  height: 18px;
+}
 .file-icon {
   width: 18px;
   height: 18px;

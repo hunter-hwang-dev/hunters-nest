@@ -20,9 +20,6 @@ document.addEventListener("click", function (event) {
   }
 });
 
-// .folder 요소의 첫 번째 자식으로 newElement 추가
-folder.prepend(newElement);
-
 //folder 클래스 맨 앞에 들어간 child 찾기
 
 const tree = new Tree(1, "ROOT");
