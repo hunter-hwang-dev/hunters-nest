@@ -80,19 +80,17 @@
 
 <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)"> #2 번째 머지</span>
 
-#### `2025-02-16 일요일` 휴식!
+#### `2025-02-16 일요일` 까먹지 않게 살짝 들여다 볼 것.
 
-#### `2025-02-17 월요일` 까먹지 않게 살짝 들여다 볼 것.
+#### `2025-02-17 월요일` 좀 쉴까?
 
 #### `2025-02-17 화요일` 자잘한 기능 구현 최소 3개, 최대 7개 목표
 
 ## ⚡ 바로 할 일!
 
-<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">2025-02-15 11:05:14 아휴 오늘은 이제 좀 쉬자.</span> (예상 소요: )
+<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">찍어낸 Object를 불러와, DOM에 올려 html 반영하기</span> (예상 소요: 6시간)
 
 ## 🛣️ 그 다음 목표?
-
-<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)"> 찍어낸 Object를 불러와, DOM에 올려 html 반영하기</span>
 
 <span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)"> 쿠키 같은 것 이용해 파일 트리 구조 업데이트 최소화</span>
 
