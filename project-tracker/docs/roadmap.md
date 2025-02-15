@@ -48,7 +48,7 @@
 
 ## ⚡ 바로 할 일!
 
-<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)"> 이모지로 때웠던 폴더를 `svg`로 재교체</span>
+<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)"> 이모지로 때웠던 폴더를 `svg`로 재교체</span> (예상 소요: 1시간이므로) 6시간 잡을 것.
 
 ## 🛣️ 그 다음 목표?
 
