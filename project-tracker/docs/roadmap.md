@@ -15,7 +15,7 @@
 
 ## 🗺️ 왜 시작했고, 지금 어디?
 
-#### `2025-02-14`
+#### `2025-02-14 금요일`
 
 ✨ <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">시작일</span>
 
@@ -23,7 +23,7 @@
 
 🎯 <span class="highlight" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 56, 0.5)">MVP</span> 진행 상황을 간결하게 기록, 공유하는 트래커부터 만들자.
 
-#### `2025-02-15`
+#### `2025-02-15 토요일`
 
 ✨ <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)"> 첫 커밋 & 레포지토리 게시</span>
 
@@ -67,11 +67,22 @@
 - 열고 닫는 그림 반대인 부분도 [수정함](troubleshooting.md/#-처음-켤-때-sub-tree-닫아두기-해결)
 - 예상 소요 시간은 `1시간` 이었으나, 실제 구현까지 `30분` 가량 걸림.</details>
 
+<details style="padding-bottom: 8px;">
+<summary style="padding-bottom: 8px">&nbsp;&nbsp;<span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">안에 sub-tree가 있는 folder svg 교체</span>
+</summary>
+
+- 이미지 찾기 `30분` 예상, 검색 결과 시원치 않아 svg 뜯어 컬러 코드 수정. `10분` 가량 걸림.
+- 코드 구현 `20분` 예상, getComputedStyle(event.target)으로 저장해야 함을 몰랐음. `26분` 가량 걸림.</details>
+
+#### `2025-02-16 일요일` 휴식!
+
+#### `2025-02-17 월요일` 까먹지 않게 살짝 들여다 볼 것.
+
+#### `2025-02-17 화요일` 자잘한 기능 구현 최소 3개, 최대 7개 목표
+
 ## ⚡ 바로 할 일!
 
-<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">안에 sub-tree가 있는 folder svg 교체</span> (예상 소요: 이미지 찾기 30분, 코드 구현 20분.)
-이미지 찾기: 2025-02-15 10:36:19 시작
-이미지 찾기 실패해서 (wikipedia icon8로 찾았는데 딱 원하는게 바로 무료로 안 나옴) 2025-02-15 10:44:21 까지 직접 svg 파일 txt로 열어서 컬러코드 하늘색 계열로 수정함. 임시로 "파일 들어있는" 폴더 라는 뜻
+<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">2025-02-15 11:05:14 아휴 오늘은 이제 좀 쉬자.</span> (예상 소요: )
 
 ## 🛣️ 그 다음 목표?
 
