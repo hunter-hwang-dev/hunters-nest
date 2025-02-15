@@ -7,7 +7,7 @@ document.addEventListener("click", function (event) {
     const subtree = event.target.nextElementSibling;
     if (subtree && subtree.classList.contains("sub-tree")) {
       event.target.style.setProperty("--icon", ` url(${iconFolderOpen})`);
-      subtree.classList.toggle("display-none");
+      subtree.classList.toggle("display-block");
     }
   }
 });
