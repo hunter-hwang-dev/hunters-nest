@@ -25,9 +25,12 @@ ul {
   margin-left: 28px;
   background-color: #ddd;
   border-radius: 4px;
-  display: block;
+  display: none;
 }
 .folder {
+  /* 커스텀 속성 */
+  --icon: url("icons/folder-closed.svg");
+
   display: flex;
   align-items: center;
   gap: 5px;
@@ -35,13 +38,14 @@ ul {
   border-radius: 6px;
   transition: background-color 0.2s ease;
 }
-.file-icon {
+.folder::before {
+  content: var(--icon);
   width: 18px;
   height: 18px;
 }
 .white {
   background-color: #fff;
 }
-.display-none {
-  display: none;
+.display-block {
+  display: block;
 }
