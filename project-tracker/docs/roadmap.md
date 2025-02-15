@@ -60,9 +60,18 @@
 - 예상 소요 시간은 `30분` 이었으나, 실제 구현까지 `5분` 가량 걸림.
 - 역시 기능을 최대한 잘게 잘라서 차근차근 구현하니 진도가 빠름!</details>
 
+<details style="padding-bottom: 8px;">
+<summary style="padding-bottom: 8px">&nbsp;&nbsp;<span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">folder 클릭해 sub-tree 열렸을 때 svg 경로 교체</span>
+</summary>
+
+- 열고 닫는 그림 반대인 부분도 [수정함](troubleshooting.md/#-처음-켤-때-sub-tree-닫아두기-해결)
+- 예상 소요 시간은 `1시간` 이었으나, 실제 구현까지 `30분` 가량 걸림.</details>
+
 ## ⚡ 바로 할 일!
 
-<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">folder 클릭해 sub-tree 열렸을 때 svg 경로 교체</span> (예상 소요: 1시간)
+<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">안에 sub-tree가 있는 folder svg 교체</span> (예상 소요: 이미지 찾기 30분, 코드 구현 20분.)
+이미지 찾기: 2025-02-15 10:36:19 시작
+이미지 찾기 실패해서 (wikipedia icon8로 찾았는데 딱 원하는게 바로 무료로 안 나옴) 2025-02-15 10:44:21 까지 직접 svg 파일 txt로 열어서 컬러코드 하늘색 계열로 수정함. 임시로 "파일 들어있는" 폴더 라는 뜻
 
 ## 🛣️ 그 다음 목표?
 
