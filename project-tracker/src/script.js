@@ -1,14 +1,12 @@
-// import { Tree } from "./tree.js";
+import { EMBED_CLOSED, EMBED_OPEN } from "./paths.js";
 
-const folderOpen = "icons/folder-open.svg";
-const fileFolderClosed = "icons/folder-files-closed.svg";
-const fileFolderOpen = "icons/folder-files-open.svg";
+// import { Tree } from "./tree.js";
 
 const folders = document.querySelectorAll(".folder");
 folders.forEach((folder) => {
   const subtree = folder.nextElementSibling;
   if (subtree && subtree.classList.contains("sub-tree")) {
-    folder.style.setProperty("--icon", ` url(${fileFolderClosed})`);
+    folder.style.setProperty("--icon", ` url(${EMBED_CLOSED})`);
     //subtree 있는 folder만 파란색(닫힘)으로 기본
   }
 });
@@ -20,13 +18,15 @@ document.addEventListener("click", function (event) {
       const currentIcon = getComputedStyle(event.target).getPropertyValue(
         "--icon"
       );
-      if (currentIcon.includes(fileFolderClosed)) {
-        event.target.style.setProperty("--icon", `url(${fileFolderOpen})`);
+
+      //아이콘 토글
+      if (currentIcon.includes(EMBED_CLOSED)) {
+        event.target.style.setProperty("--icon", `url(${EMBED_OPEN})`);
       } else {
-        event.target.style.setProperty("--icon", `url(${fileFolderClosed})`);
+        event.target.style.setProperty("--icon", `url(${EMBED_CLOSED})`);
       }
 
-      subtree.classList.toggle("display-block");
+      subtree.classList.toggle("display-block"); //sub-tree 토글
     }
   }
 });
