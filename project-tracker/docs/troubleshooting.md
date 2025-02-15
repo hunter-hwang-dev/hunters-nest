@@ -1,5 +1,32 @@
 # 🏛️ git init 이후의 변천사 ⏳
 
+## 🏗️ 프로젝트 구조 정리 시행착오
+
+7. 확장성을 생각해 폴더를 최대한 나누어놓았는데, 늘이고 줄이면서 최적의 구조를 찾고자 함이다.
+
+```
+└── 📁project-tracker
+    └── 📁assets
+        └── 📁icons
+            └── 🏞️...
+        └── 📁screenshots
+            └── 🏞️...
+        └── 🖍️style.css
+        └── 🏔️favicon.ico
+        └── 💾treeData.js🆕 // Tree형 자료구조 테스트 위한 더미 데이터
+    └── 📁docs
+        └── ✍️...
+    └── 📁src
+        └── 📁config🆕 // 환경변수, 이미지 경로 등
+            └── 📜assetPaths.js
+        └── 📁utils🆕 // class 정의 모음
+            └── 📜tree.js
+        └── 📜script.js
+    └── 👉index.html
+    └── 😴.gitignore
+    └── 📦package.json🆕 // "type": "module" 쓰려고
+```
+
 ## 🐒 지루하지만 스스로 refactor할 수 있어
 
 ### 👶 <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)">처음 켤 때 sub-tree 닫아두기</span> <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">해결</span>
