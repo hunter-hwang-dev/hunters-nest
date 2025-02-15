@@ -1,4 +1,4 @@
-import { EMBED_CLOSED, EMBED_OPEN } from "./config/paths.js";
+import { EMBED_CLOSED, EMBED_OPEN } from "./config/assetPaths.js";
 
 //처음 상태는 모두 노란색(닫힘)이나, subtree 있는 folder만 파란색(닫힘)으로 아이콘 변경
 const folders = document.querySelectorAll(".folder");
