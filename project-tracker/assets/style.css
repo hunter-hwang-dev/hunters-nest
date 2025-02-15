@@ -28,6 +28,9 @@ ul {
   display: block;
 }
 .folder {
+  /* 커스텀 속성 */
+  --icon: url("icons/folder-closed.svg");
+
   display: flex;
   align-items: center;
   gap: 5px;
@@ -36,7 +39,7 @@ ul {
   transition: background-color 0.2s ease;
 }
 .folder::before {
-  content: url("icons/folder-closed.svg");
+  content: var(--icon);
   width: 18px;
   height: 18px;
 }
