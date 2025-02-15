@@ -46,9 +46,16 @@
 - 새로 만든 `tree` 인스턴스에 `TreeNode`를 하나씩 추가
 - 각 `TreeNode` class 인스턴스의 `key`가 ROOT부터 해당 node까지의 순서를 모아둔 것임을 체감</details>
 
+<details style="padding-bottom: 8px;">
+<summary style="padding-bottom: 8px">&nbsp;&nbsp;<span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)">이모지로 때웠던 폴더를 svg로 재교체</span>
+</summary>
+
+- 예상 소요 시간은 `1시간 * 6 = 6시간` 이었으나, 실제 구현까지 `20분` 가량 걸림. 갈피를 못 잡겠군!
+- 아직 초보니까, 시행착오하면서 걸리는 시간이 길다. 다음 할 일은 직감을 그대로 따라 예상 시간을 잡아 보자.</details>
+
 ## ⚡ 바로 할 일!
 
-<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)"> 이모지로 때웠던 폴더를 `svg`로 재교체</span> (예상 소요: 1시간이므로) 6시간 잡을 것.
+<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">svg를 stylesheet에서 끼워넣기</span> (예상 소요: 30분)
 
 ## 🛣️ 그 다음 목표?
 
