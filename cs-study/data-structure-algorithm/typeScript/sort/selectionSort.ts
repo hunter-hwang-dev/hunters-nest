@@ -11,7 +11,7 @@ function selectionSort(numArr: number[]): number[] {
         최소값인덱스 = j;
       }
     }
-    [arr[i], arr[최소값인덱스]] = [arr[최소값인덱스], arr[i]];
+    [arr[i], arr[최소값인덱스]] = [arr[최소값인덱스], arr[i]]; //구조 분해 할당 (Destructuring)으로 쉽게 스왑 가능!
     console.log(arr);
   }
 
