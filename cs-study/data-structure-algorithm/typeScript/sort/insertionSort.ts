@@ -2,20 +2,24 @@ import { testArr1, testArr2 } from "../data";
 
 function insertionSort(numArr: number[]): number[] {
   let arr = [...numArr];
+  let baseArr = [arr[0]];
 
-  return arr;
+  for (let i = 1; i < arr.length; i++) {
+    baseArr.splice(i, 0, arr[i]);
+  }
+  console.log(baseArr);
+  return baseArr;
 }
 
-// console.log(insertionSort(testArr1));
-// console.log(insertionSort(testArr2));
+insertionSort(testArr1);
 
 function insertion(baseArr: number[], insert: number): number[] {
   let arr = [...baseArr];
-
-  for (let i = arr.length - 1; i >= 0; i--) {
-    if (arr[i] > insert) {
-      console.log(`${arr[i]} 앞에 ${insert}`);
-      arr.splice(i, 0, insert);
+  for (let j = arr.length - 1; j >= 0; j--) {
+    if (arr[j] > insert) {
+      console.log(`${arr[j]} 앞에 ${insert}`);
+      arr.splice(j, 0, insert);
+      break;
     }
   }
 
