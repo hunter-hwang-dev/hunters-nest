@@ -1,14 +1,17 @@
-import { testArr } from "./data";
+import { testArr } from "../data";
 
 function bubbleSort(numArr: number[]): number[] {
-  var arr = [...numArr];
-  for (let j = 0; j < arr.length; j++) {
-    if (arr[j] > arr[j + 1]) {
-      var temp = arr[j];
-      arr[j] = arr[j + 1];
-      arr[j + 1] = temp;
+  let arr = [...numArr];
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
     }
   }
+
   return arr;
 }
 
