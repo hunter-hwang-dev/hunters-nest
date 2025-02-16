@@ -57,3 +57,10 @@ function selectionSortWithComment(array) {
 
 //bubbleSortWithComment(testArr1);
 selectionSortWithComment(testArr1);
+
+/*
+====selectionSort==============================================
+큰 루프: 0부터 n-1 > 1부터 n-1 ... > n-2부터 n-1 임에 주의!
+작은 루프: 이 안에서 가장 작은 녀석을 "선택"해 맨 앞으로 끌고 오기.
+=============================================================
+*/
