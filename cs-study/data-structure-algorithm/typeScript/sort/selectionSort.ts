@@ -12,10 +12,10 @@ function selectionSort(numArr: number[]): number[] {
       현재최소.value = arr[j];
       console.log(현재최소);
     }
-
-    arr[현재최소.index] = arr[0];
-    arr[0] = 현재최소.value;
   }
+
+  arr[현재최소.index] = arr[0];
+  arr[0] = 현재최소.value;
   return arr;
 }
 
