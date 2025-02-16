@@ -1,4 +1,4 @@
-import { testArr } from "../data";
+import { testArr1, testArr2 } from "../data";
 
 function bubbleSort(numArr: number[]): number[] {
   let arr = [...numArr];
@@ -13,7 +13,8 @@ function bubbleSort(numArr: number[]): number[] {
   return arr;
 }
 
-console.log(bubbleSort(testArr));
+console.log(bubbleSort(testArr1));
+console.log(bubbleSort(testArr2));
 
 /*
 ====bubbleSort==============================================

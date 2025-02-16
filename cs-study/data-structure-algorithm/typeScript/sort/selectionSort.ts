@@ -1,4 +1,4 @@
-import { testArr } from "../data";
+import { testArr1, testArr2 } from "../data";
 
 function selectionSort(numArr: number[]): number[] {
   let arr = [...numArr];
@@ -18,4 +18,5 @@ function selectionSort(numArr: number[]): number[] {
   return arr;
 }
 
-selectionSort(testArr);
+selectionSort(testArr1);
+selectionSort(testArr2);
