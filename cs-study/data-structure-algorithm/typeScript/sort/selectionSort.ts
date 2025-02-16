@@ -2,18 +2,16 @@ import { testArr } from "../data";
 
 function selectionSort(numArr: number[]): number[] {
   let arr = [...numArr];
-  let 현재최소: { index: number; value: number };
 
   for (let i = 0; i < arr.length - 1; i++) {
-    현재최소 = { index: i, value: arr[i] };
-    for (let j = i; j < arr.length; j++) {
-      if (arr[j] < 현재최소.value) {
-        현재최소.index = j;
-        현재최소.value = arr[j];
+    let 최소값인덱스 = i;
+
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[최소값인덱스]) {
+        최소값인덱스 = j;
       }
     }
-    arr[현재최소.index] = arr[i];
-    arr[i] = 현재최소.value;
+    [arr[i], arr[최소값인덱스]] = [arr[최소값인덱스], arr[i]];
     console.log(arr);
   }
 
