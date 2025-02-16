@@ -27,26 +27,10 @@ function bubbleSort(array) {
 
 /*
 ====selectionSort==============================================
-큰 루프: 0부터 n-1 > 0부터 n-2 ... > 0부터 1 임에 주의!
+큰 루프: 0부터 n-1 > 1부터 n-1 ... > n-2부터 n-1 임에 주의!
 작은 루프: 이 안에서 가장 작은 녀석을 "선택"해 맨 앞으로 끌고 오기.
 =============================================================
 */
-
-function selectionSort(array) {
-  var arr = [...array];
-  var selection = arr[0]; //항이 하나라도 있어야 되긴 함.
-
-  for (let j = 0; j < arr.length; j++) {
-    //작은 루프
-    if (arr[j] < selection) {
-      console.log(arr[j], "<- 얘가", selection, "보다 작네");
-      arr[0] = arr[j];
-      arr[j] = selection;
-    }
-  }
-
-  return arr;
-}
 
 //console.log(bubbleSort(testArr1));
 console.log(selectionSort(testArr1));

@@ -24,4 +24,36 @@ function bubbleSortWithComment(array) {
   return arr;
 }
 
-bubbleSortWithComment(testArr1);
+function selectionSortWithComment(array) {
+  var arr = [...array];
+  var selectionIndex = 0; //항이 하나라도 있어야 되긴 함.
+  var minSelection = arr[selectionIndex];
+
+  for (let j = 0; j < arr.length; j++) {
+    //작은 루프
+    console.log(arr[j], minSelection, "비교 중...");
+    if (arr[j] < minSelection) {
+      console.log(arr[j], "<- 얘가", minSelection, "보다 작네!!!");
+      minSelection = arr[j]; //바꾸진 않고 저장만 해 둠
+    } else {
+      console.log(minSelection, "보다 더 작은 놈이 아직 안 나왔음.");
+    }
+    console.log("");
+  }
+  console.log(
+    "작은 루프 한바퀴 돌았고, 빈 자리 중 제일 앞으로 보낼 숫자: ",
+    minSelection,
+    "를(을)",
+    arr[selectionIndex],
+    "과(와) 스와핑"
+  );
+
+  var temp = arr[selectionIndex];
+  arr[selectionIndex] = minSelection; //아까 비교한 것 중, 저장한 작은 놈을 앞쪽에 넣기
+
+  console.log(arr);
+  return arr;
+}
+
+//bubbleSortWithComment(testArr1);
+selectionSortWithComment(testArr1);
