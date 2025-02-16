@@ -11,7 +11,12 @@ function selectionSort(numArr: number[]): number[] {
         minIndex = j;
       }
     }
-    [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]; //구조 분해 할당 (Destructuring)으로 쉽게 스왑 가능!
+
+    if (i !== minIndex) {
+      //불필요한 swap 제외
+      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+    }
+
     console.log(arr);
   }
 
