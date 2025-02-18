@@ -21,7 +21,7 @@ function insertionSort(numArr: number[]) {
       }
     }
     if (!inserted) {
-      slice.splice(0, 0, insert);
+      slice.unshift(insert); //slice.splice(0, 0, insert);
     }
 
     return slice;
