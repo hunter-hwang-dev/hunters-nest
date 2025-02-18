@@ -17,5 +17,7 @@ let parent2 = addNode("parent 2");
 addNode("parent 3");
 
 addNode("child 1", parent2);
+addNode("child 2", parent2);
+addNode("child 3", parent2);
 
 console.log(rootNode);
