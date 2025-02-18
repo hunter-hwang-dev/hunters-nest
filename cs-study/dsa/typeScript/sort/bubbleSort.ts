@@ -1,30 +1,27 @@
-import { testArr1, testArr2 } from "../data";
-
-function bubbleSort(numArr: number[]): number[] {
+export function bubbleSort(numArr: number[]): number[] {
   let arr = [...numArr];
-  for (let i = 0; i < arr.length; i++) {
-    let swapped = false;
+  let swapped: boolean;
 
-    for (let j = 0; j < arr.length - i - 1; j++) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    swapped = false; //각 바깥 루프에서 swapped 초기화.
+    for (let j = 0; j < arr.length - 1 - i; j++) {
       if (arr[j] > arr[j + 1]) {
-        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]; //구조 분해 할당
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+
         swapped = true;
       }
-    }
+    } //하나도 안 바뀌었다 = 이미 작은 루프에서 asc 정렬 되어 있다
 
-    if (!swapped) break;
+    if (!swapped) {
+      break; //큰 루프 빠져나오기
+    }
   }
 
   return arr;
 }
 
-console.log(bubbleSort(testArr1));
-console.log(bubbleSort(testArr2));
-
-/*
-====bubbleSort==============================================
-큰 루프: 0부터 n-1 > 0부터 n-2 ... > 0부터 1 임에 주의!
-작은 루프: 한 쌍씩 대조해 가며 큰 수를 뒤로 "거품처럼" 올리기.
-1. 뒤에 수가 더 큼: 냅둬, 2. 앞의 수가 더 큼: 바꿔.
-=============================================================
-*/
+//for문 중첩 2개 -> 시간 복잡도 O(n^2)
+//그런데 numArr가 완벽히 asc 정렬되었을 경우, O(n)
+//numArr = [3, 7, 1, 2, 5] 같은 식으로 중간에 swapped = false 체크되는 경우도 있음.
