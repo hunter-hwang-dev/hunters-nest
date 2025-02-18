@@ -1,17 +1,27 @@
 import { testArr1, testArr2 } from "../data";
 
-function insertionSort(numArr: number[]) {
-  let arr = numArr.slice(0, -1); //[1, 2, 3, 4, 5, 6, 7]
-  let insert = numArr[numArr.length - 1]; //4
+// [1, 2, 3, 4, 5, 6, 7], 4
+function insert(numArr: number[], insert: number): number[] {
+  let arr = [...numArr];
+  let inserted = false;
 
-  for (let i = arr.length - 1; i >= 0; i--) {
-    if (arr[i] < insert) {
+  for (let i = arr.length; i >= 0; i--) {
+    if (arr[i] <= insert) {
       arr.splice(i + 1, 0, insert);
+      inserted = true;
       break;
     }
   }
 
+  if (!inserted) {
+    //arr[i]가 전부 insert보다 큰 경우
+    arr.splice(0, 0, insert);
+  }
+
+  console.log(arr);
   return arr;
 }
 
-insertionSort([1, 2, 3, 4, 5, 6, 7, 4]);
+insert([1, 2, 3, 4, 5, 6, 7], 4);
+insert([1, 2, 3, 4, 5, 6], 0);
+insert([1, 2, 3, 4, 5, 6], 12);
