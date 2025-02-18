@@ -1,33 +1,28 @@
-let myArray = [170, 45, 75, 90, 802, 24, 2, 66];
-let radixArray = [[], [], [], [], [], [], [], [], [], []];
-let maxVal = 802;
-let exp = 1;
+let testArr = [170, 45, 75, 90, 802, 24, 2, 66];
 
-// while (~~(maxVal / exp) > 0) {
-//   myArray.forEach((element) => {
-//     radixArray[~~(element / exp) % 10].push(element);
-//   });
+radixSort(testArr);
 
-//   myArray = [];
-//   radixArray.forEach((subArray) => {
-//     subArray.forEach((element) => myArray.push(element));
-//   });
+function radixSort(arr: number[]): number[] {
+  let radixArray = [[], [], [], [], [], [], [], [], [], []];
+  let maxVal = Math.max(...arr);
+  let exp = 1;
 
-//   console.log(myArray);
-//   console.log(radixArray);
-//   exp *= 10;
-// }
+  while (~~(maxVal / exp) > 0) {
+    arr.forEach((element) => {
+      radixArray[~~(element / exp) % 10].push(element);
+    });
 
-myArray.forEach((element) => {
-  radixArray[~~(element / exp) % 10].push(element);
-});
+    arr = [];
+    radixArray.forEach((subArray) => {
+      subArray.forEach((element) => arr.push(element));
+    });
 
-myArray = [];
-radixArray.forEach((subArray) => {
-  subArray.forEach((element) => myArray.push(element));
-});
+    radixArray = [[], [], [], [], [], [], [], [], [], []];
 
-radixArray = [[], [], [], [], [], [], [], [], [], []];
+    console.log(arr);
+    console.log(radixArray);
+    exp *= 10;
+  }
 
-console.log(myArray);
-console.log(radixArray);
+  return arr;
+}
