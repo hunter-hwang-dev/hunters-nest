@@ -14,6 +14,16 @@ class LinkedList {
     this.head = head;
   }
 
+  // let node1 = new ListNode(2);
+  // let node2 = new ListNode(5);
+  // node1.next = node2;
+  push(val: any) {
+    if (this.getLast()) {
+      this.getLast().next = new ListNode(val);
+    } else {
+      this.head = new ListNode(val);
+    }
+  }
   size() {
     let count = 0;
     let node = this.head;
@@ -44,10 +54,9 @@ class LinkedList {
   }
 }
 
-let node1 = new ListNode(2);
-let node2 = new ListNode(5);
-node1.next = node2;
-let list = new LinkedList(node1);
+let list = new LinkedList();
+list.push(2);
+list.push(5);
 
 console.log(list);
 console.log(list.head);
