@@ -2,25 +2,12 @@
 
 let rootNode = { data: "ROOT", parent: null, child: [] };
 
-let node00 = {
-  data: "parent 1",
-  parent: rootNode,
-  child: [],
-};
-rootNode.child.push(node00);
+function newNode(data = "New Folder", parent = rootNode, child = []) {
+  parent.child.push({ data: data, parent: parent, child: child });
+}
 
-let node01 = {
-  data: "parent 2",
-  parent: rootNode,
-  child: [],
-};
-rootNode.child.push(node01);
-
-let node02 = {
-  data: "parent 2",
-  parent: rootNode,
-  child: [],
-};
-rootNode.child.push(node02);
+newNode("parent 1", rootNode);
+newNode("parent 2", rootNode);
+newNode("parent 3", rootNode);
 
 console.log(rootNode);
