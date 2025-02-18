@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .box {
+        position: absolute;
+        background-image: url("daily/stickers/sticker00.svg");
+        background-size: contain; /* 원본 크기 비율을 유지하면서 요소 안에 맞추기 */
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 200px; /* 임의의 크기 설정 */
+        height: 200px; /* 임의의 크기 설정 */
+      }
+    </style>
+    <div class="box"></div>
+
+    <script>
+      const img = new Image();
+      img.src = "daily/stickers/sticker00.svg";
+
+      img.onload = function () {
+        const box = document.querySelector(".box");
+        box.style.width = `${img.width}px`;
+        box.style.height = `${img.height}px`;
+        box.style.backgroundImage = `url(${img.src})`;
+        box.style.backgroundSize = "auto";
+        box.style.backgroundRepeat = "no-repeat";
+        box.style.backgroundPosition = "center";
+      };
+    </script>
+  </body>
+</html>
