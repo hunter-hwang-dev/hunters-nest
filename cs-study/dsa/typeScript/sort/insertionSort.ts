@@ -16,4 +16,3 @@ export function insertionSort(numArr: number[]): number[] {
 
   return arr;
 }
-insertionSort([1, 7, 6, 4, 3]);
