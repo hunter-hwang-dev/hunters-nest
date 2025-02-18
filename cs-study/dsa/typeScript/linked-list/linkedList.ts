@@ -1,6 +1,6 @@
 class ListNode {
   val: any;
-  next: any;
+  next: ListNode;
 
   constructor(val) {
     this.val = val;
@@ -8,42 +8,51 @@ class ListNode {
   }
 }
 
-class SinglyLinkedList {
-  head: any;
-  tail: any;
-  length: number;
-  constructor() {
-    this.head = null;
-    this.tail = null;
-    this.length = 0;
+class LinkedList {
+  head: ListNode;
+  constructor(head = null) {
+    this.head = head;
   }
 
-  push(val) {
-    let newListNode = new ListNode(val);
-
-    if (!this.head) {
-      //처음 node 생성될 시 head가 없음
-      this.head = newListNode;
-      this.tail = this.head;
-    } else {
-      this.tail.next = newListNode;
-      this.tail = newListNode;
+  size() {
+    let count = 0;
+    let node = this.head;
+    while (node) {
+      count++;
+      node = node.next;
     }
-    this.length++;
-    return this;
+    return count;
+  }
+
+  clear() {
+    this.head = null;
+  }
+
+  getLast() {
+    let lastNode = this.head;
+    if (lastNode) {
+      while (lastNode.next) {
+        lastNode = lastNode.next;
+      }
+    }
+
+    return lastNode;
+  }
+
+  getFirst() {
+    return this.head;
   }
 }
 
-let temp = new SinglyLinkedList();
+let node1 = new ListNode(2);
+let node2 = new ListNode(5);
+node1.next = node2;
+let list = new LinkedList(node1);
 
-temp.push(1);
-console.log(temp);
+console.log(list);
+console.log(list.head);
+console.log(list.head.next);
+console.log(list.head.next.val); //returns 5
+console.log(list.size());
 
-temp.push("hello");
-console.log(temp);
-
-temp.push(true);
-console.log(temp);
-
-temp.push(1000);
-console.log(temp);
+//https://www.freecodecamp.org/news/implementing-a-linked-list-in-javascript/
