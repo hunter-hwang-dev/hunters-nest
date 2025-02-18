@@ -1,9 +1,9 @@
 class TreeNode {
-  val: any;
+  data: any;
   left: TreeNode;
   right: TreeNode;
-  constructor(val) {
-    this.val = val;
+  constructor(data) {
+    this.data = data;
     this.left = null;
     this.right = null;
   }
@@ -14,6 +14,8 @@ class binarySearchTree {
   constructor() {
     this.root = null;
   }
+
+  insert(data) {}
 }
 
 let tree = new binarySearchTree();

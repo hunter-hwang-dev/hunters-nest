@@ -1,9 +1,9 @@
 class ListNode {
-  val: any;
+  data: any;
   next: ListNode;
 
-  constructor(val) {
-    this.val = val;
+  constructor(data) {
+    this.data = data;
     this.next = null;
   }
 }
@@ -17,11 +17,11 @@ class LinkedList {
   // let node1 = new ListNode(2);
   // let node2 = new ListNode(5);
   // node1.next = node2;
-  push(val: any) {
+  push(data: any) {
     if (this.getLast()) {
-      this.getLast().next = new ListNode(val);
+      this.getLast().next = new ListNode(data);
     } else {
-      this.head = new ListNode(val);
+      this.head = new ListNode(data);
     }
   }
   size() {
@@ -61,7 +61,7 @@ list.push(5);
 console.log(list);
 console.log(list.head);
 console.log(list.head.next);
-console.log(list.head.next.val); //returns 5
+console.log(list.head.next.data); //returns 5
 console.log(list.size());
 
 //https://www.freecodecamp.org/news/implementing-a-linked-list-in-javascript/
