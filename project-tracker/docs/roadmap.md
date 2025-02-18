@@ -80,11 +80,53 @@
 
 <span class="highlight yellow" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 192, 55, 0.32)"> #2 번째 머지</span>
 
-#### `2025-02-16 일요일` 휴식!
+#### `2025-02-16 일요일` <span class="highlight sub-branch" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(65, 37, 11, 0.65)">cs-study/dsa</span> n-ary tree 구현 위해, array 정렬 알고리즘부터 살펴보기
 
-#### `2025-02-17 월요일` 까먹지 않게 살짝 들여다 볼 것.
+#### `2025-02-17 월요일` <span class="highlight sub-branch" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(65, 37, 11, 0.65)">cs-study/dsa</span> bubble, selection, insertion, quick, radix, merge sort 중 되는 것부터 구현
 
-#### `2025-02-17 화요일` 자잘한 기능 구현 최소 3개, 최대 7개 목표
+#### `2025-02-18 화요일` <span class="highlight sub-branch" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(65, 37, 11, 0.65)">cs-study/dsa</span> linked list, binary tree 살펴보기
+
+OS가 파일 디렉토리 관리하는 방법?
+사용자에게: n-ary tree로 보여주는 것이 맞다.
+
+실제 저장은: OS마다 다름
+
+1. FAT (File Allocation Table): 옛날 방식. linked list
+2. NTFS (New Technology File System): 요즘 방식.
+   a. 파일 찾을 땐: Master File Table (MFT) 에서 찾음
+   b. B-tree structure 사용한다고.
+3. ext4 (Extended Filesystem 4, used in Linux)
+   a. 각 file/directory가 inode 갖고 있는 inode table
+   b. 각 directory가 가리기는 inodes 따라 tree 모양 구조가 나옴
+   c. 내부에선 파일 찾기 쉽게 B-tree 씀
+4. APFS (Apple File System): SSD 최적. B-tree structure
+
+궁금한 질문:
+
+- OS 만드는 수업도 있던데, 99.9%는 학습용이겠지만 진짜 잘하는 사람은 어디로 갈까? 이미 점유 다 된 상태에서 처음부터 개발을 하나? 아 닌텐도 게임기 같은 경우.
+- 배보다 배꼽 안 크려면 OS는 low level 언어로 짜야겠네:
+  a. x86 같은 칩의 초기 부트 코드는 어셈블리
+  b. 왠만한 현대 OS의 기틀은 싹 다 C로 작성
+  c. 몇몇 유저가 조작하는 요소는 C++로 쓰기도 함
+  d. 근데 고질적 메모리 문제 열 받아서, C/C++ 대체용으로 만든 Rust로 갈아타려고 하는 중
+
+또 궁금한 질문: 그러면 Rust는 어느 정도로 low level인 거임? 잠금 풀면 거의 C/C++ 레벨임. 그래서 하이브리드 언어라고 부른다고.. 흠.
+
+- 포인터, 직접 메모리 접근이 가능함
+- unsafe로 잠깐 열어서 하드웨어 레지스터 접근 가능
+  a. 하드웨어 초기화 (부트 단계)
+  b. 센서 값 읽기 & 모터 제어 (임베디드)
+  c. 그래픽 카드, 사운드 카드 직접 제어 (커널 드라이버)
+- Rust 표준 라이브러리(std) 끌 수 있어 runtime 제거 가능
+
+사이드로 빠졌다가 다시 돌아옴.
+
+#### `2025-02-19 수요일` 기능 구현 너무 정체되지 않게 다시 <span class="highlight branch" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(255, 56, 56, 0.5)">project-tracker</span> 브랜치로
+
+생각해 보니깐, 이름이 project-tracker인데 정말 진행상황 트래킹에 필요한 기능 좀 기획하자.
+
+1. 완전 notion-like라면 linked list로도 충분함 (풀로 안보여주잖어)
+2. 달력 만들고 싶었는디. 어떤 느낌이냐 하면은 github contribution 표 같은거.
 
 ## ⚡ 바로 할 일!
 
