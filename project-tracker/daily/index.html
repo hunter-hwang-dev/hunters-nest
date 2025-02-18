@@ -15,9 +15,9 @@
       </p>
       <p>기간: 2025-02-14 ~ 2025-03-14 한 달 동안</p>
     </header>
-    <div>
-      <div class="daily day" id="day">
-        <h4 id="date">2025년 2월 19일 수요일</h4>
+    <h4 id="date">2025년 2월 19일 수요일</h4>
+    <div class="day">
+      <div class="daily todo">
         <ul id="list">
           <li>
             <input type="checkbox" name="1" /><label for="1"
@@ -36,7 +36,25 @@
           </li>
         </ul>
       </div>
-      <div class="daily sketch"></div>
+      <div class="daily sketch" id="drop-zone"></div>
+      <div class="sticker" draggable="true"></div>
     </div>
+
+    <script>
+      const stickers = document.getElementsByClassName("sticker"); //웹에서 스티커 추가 시에 갱신 안됨 주의
+      const dropZone = document.getElementById("drop-zone");
+
+      stickers[0].addEventListener("drastart", function (event) {
+        console.log(event);
+      });
+
+      dropZone.addEventListener("dragover", function (event) {
+        event.preventDefault();
+      });
+
+      dropZone.addEventListener("drop", function (event) {
+        dropZone.prepend(stickers[0]);
+      });
+    </script>
   </body>
 </html>

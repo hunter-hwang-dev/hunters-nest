@@ -17,7 +17,29 @@ ul {
   list-style: none;
   padding-left: 0px;
 }
-.day {
+
+.daily {
   border: rgb(60, 105, 225) solid 1px;
   background-color: white;
+}
+.sketch {
+  height: 480px;
+  background-size: 24px 24px;
+  background-image: linear-gradient(
+      to right,
+      rgb(60, 105, 225) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgb(60, 105, 225) 1px, transparent 1px);
+}
+.sticker {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 120px;
+  height: 40px;
+  background-color: rgb(60, 105, 225);
+}
+.selected {
+  border: blue solid 10px;
 }
