@@ -28,9 +28,8 @@ addNode("grand-grandchild 1", grandchild2);
 console.log(rootNode);
 
 const treeContainer = document.getElementById("tree-container");
+
 let ulTree = document.createElement("ul");
-let divFolder = document.createElement("div");
-divFolder.classList.add("folder");
 
 document.getElementById("root").addEventListener("click", function () {
   ulTree.classList.add("tree");
@@ -38,14 +37,20 @@ document.getElementById("root").addEventListener("click", function () {
 });
 
 document.getElementById("parent1").addEventListener("click", function () {
+  let divFolder = document.createElement("div");
+  divFolder.classList.add("folder");
   divFolder.innerText = "parent 1";
   ulTree.appendChild(divFolder);
 });
 document.getElementById("parent2").addEventListener("click", function () {
+  let divFolder = document.createElement("div");
+  divFolder.classList.add("folder");
   divFolder.innerText = "parent 2";
   ulTree.appendChild(divFolder);
 });
 document.getElementById("parent3").addEventListener("click", function () {
+  let divFolder = document.createElement("div");
+  divFolder.classList.add("folder");
   divFolder.innerText = "parent 3";
   ulTree.appendChild(divFolder);
 });
