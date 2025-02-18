@@ -6,8 +6,42 @@
     <title>Document</title>
   </head>
   <body>
-    <img src="sticker00.svg" />
-    <img src="sticker01.svg" />
-    <img src="sticker02.svg" />
+    <style>
+      .box {
+        position: absolute;
+        background-color: aqua;
+      }
+    </style>
+    <div id="thisOne" class="box" draggable="true" ondragstart="drag(event)">
+      <img id="sticker00" draggable="false" src="sticker00.svg" />
+    </div>
+    <script>
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      document.addEventListener("dragover", function (event) {
+        event.preventDefault();
+      });
+
+      document.addEventListener("drop", function (event) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text"); // 드래그된 요소의 ID 가져오기
+        var draggedElement = document.getElementById(data); // ID를 사용하여 드래그된 요소 가져오기
+
+        // 마우스 좌표 가져오기
+        var mouseX = event.clientX;
+        var mouseY = event.clientY;
+
+        // 드래그된 요소를 마우스 좌표에 위치시키기
+        draggedElement.style.left =
+          mouseX - draggedElement.offsetWidth / 2 + "px";
+        draggedElement.style.top =
+          mouseY - draggedElement.offsetHeight / 2 + "px";
+
+        // 드래그된 요소를 body에 추가하기
+        document.body.appendChild(draggedElement);
+      });
+    </script>
   </body>
 </html>
