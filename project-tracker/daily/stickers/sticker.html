@@ -7,14 +7,32 @@
   </head>
   <body>
     <style>
-      .box {
+      img {
         position: absolute;
-        background-color: aqua;
+        cursor: move;
+        filter: drop-shadow(rgba(61, 58, 53, 0.753) 0rem 0.25rem 0.1rem);
       }
     </style>
-    <div id="thisOne" class="box" draggable="true" ondragstart="drag(event)">
-      <img id="sticker00" draggable="false" src="sticker00.svg" />
-    </div>
+
+    <img
+      id="sticker00"
+      draggable="true"
+      ondragstart="drag(event)"
+      src="sticker00.svg"
+    />
+    <img
+      id="sticker01"
+      draggable="true"
+      ondragstart="drag(event)"
+      src="sticker01.svg"
+    />
+    <img
+      id="sticker02"
+      draggable="true"
+      ondragstart="drag(event)"
+      src="sticker02.svg"
+    />
+
     <script>
       function drag(ev) {
         ev.dataTransfer.setData("text", ev.target.id);
