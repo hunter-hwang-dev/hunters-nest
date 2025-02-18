@@ -128,6 +128,10 @@ OS가 파일 디렉토리 관리하는 방법?
 1. 완전 notion-like라면 linked list로도 충분함 (풀로 안보여주잖어)
 2. 달력 만들고 싶었는디. 어떤 느낌이냐 하면은 github contribution 표 같은거.
 
+드래그했을 때 스티커가 움직이고, 드롭 시에 해당 위치에 붙는 기능 - 정말 생 vanilla js는 너무 심했다. 좌표 계산 덜덜 떨리고 최적화도 어려움.
+draggable library 사용해 볼까? drop 요소에 들어가고 안 들어가고가 포인트네.
+캔버스, 그리기 이런 쪽을 찾아보아야 할 것 같은데, 막상 살펴보니 원하는 방향이 아님.
+
 ## ⚡ 바로 할 일!
 
 <span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">2025-02-15 11:05:14 아휴 오늘은 이제 좀 쉬자.</span> (예상 소요: )

@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daily</title>
     <link rel="stylesheet" href="style.css" />
+    <script type="module">
+      import {
+        Draggable,
+        Sortable,
+        Droppable,
+        Swappable,
+      } from "https://cdn.jsdelivr.net/npm/@shopify/draggable/build/esm/index.mjs";
+    </script>
   </head>
   <body>
     <header style="text-align: center">
@@ -36,25 +44,57 @@
           </li>
         </ul>
       </div>
-      <div class="daily sketch" id="drop-zone"></div>
-      <div class="sticker" draggable="true"></div>
+      <div class="daily sketch" id="drop-zone">
+        <div class="sticker" draggable="true"></div>
+      </div>
+
+      <!-- <div style="display: flex">
+        <div class="sticker" draggable="true"></div>
+        <div
+          class="sticker unattached"
+          style="background-color: rgb(253, 253, 203)"
+          draggable="true"
+        ></div>
+        <div
+          class="sticker unattached"
+          style="background-color: rgb(255, 244, 92)"
+          draggable="true"
+        ></div>
+      </div> -->
     </div>
 
     <script>
-      const stickers = document.getElementsByClassName("sticker"); //웹에서 스티커 추가 시에 갱신 안됨 주의
-      const dropZone = document.getElementById("drop-zone");
+      const sticker = document.querySelector(".sticker");
+      let offsetX = 0;
+      let offsetY = 0;
 
-      stickers[0].addEventListener("drastart", function (event) {
-        console.log(event);
+      sticker.addEventListener("mousedown", (event) => {
+        isDragging = true;
+        const rect = sticker.getBoundingClientRect();
+        offsetX = event.clientX - rect.left;
+        offsetY = event.clientY - rect.top;
+
+        console.log(offsetX, offsetY);
+
+        sticker.style.cursor = "grabbing";
       });
 
-      dropZone.addEventListener("dragover", function (event) {
-        event.preventDefault();
-      });
+      document.addEventListener("mousemove", (event) => {});
+      //   const stickers = document.getElementsByClassName("unattached"); //웹에서 스티커 추가 시에 갱신 안됨 주의
+      //   const dropZone = document.getElementById("drop-zone");
 
-      dropZone.addEventListener("drop", function (event) {
-        dropZone.prepend(stickers[0]);
-      });
+      //   stickers[0].addEventListener("dragstart", function (event) {
+      //     console.log(event);
+      //   });
+
+      //   dropZone.addEventListener("dragover", function (event) {
+      //     event.preventDefault();
+      //   });
+
+      //   dropZone.addEventListener("drop", function (event) {
+      //     stickers[0].classList.remove("unattached");
+      //     dropZone.prepend(stickers[0]);
+      //   });
     </script>
   </body>
 </html>
