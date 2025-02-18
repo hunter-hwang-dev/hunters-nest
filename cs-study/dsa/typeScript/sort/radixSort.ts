@@ -1,8 +1,4 @@
-let testArr = [170, 45, 75, 90, 802, 24, 2, 66];
-
-radixSort(testArr);
-
-function radixSort(arr: number[]): number[] {
+export function radixSort(arr: number[]): number[] {
   let radixArray = [[], [], [], [], [], [], [], [], [], []];
   let maxVal = Math.max(...arr);
   let exp = 1;
@@ -18,9 +14,6 @@ function radixSort(arr: number[]): number[] {
     });
 
     radixArray = [[], [], [], [], [], [], [], [], [], []];
-
-    console.log(arr);
-    console.log(radixArray);
     exp *= 10;
   }
 

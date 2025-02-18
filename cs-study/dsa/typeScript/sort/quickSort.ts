@@ -1,4 +1,4 @@
-function partition(arr: number[], l: number, h: number): number {
+export function partition(arr: number[], l: number, h: number): number {
   const pivot = arr[h];
   let i = l - 1;
 
@@ -13,7 +13,7 @@ function partition(arr: number[], l: number, h: number): number {
   return i + 1;
 }
 
-function quickSort(arr: number[], l = 0, h?: number) {
+export function quickSort(arr: number[], l = 0, h?: number) {
   if (h === undefined) {
     h = arr.length - 1;
   }

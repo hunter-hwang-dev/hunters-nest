@@ -2,5 +2,6 @@
 
 export const testArr1: number[] = [7, 9, 11, 3, 12];
 export const testArr2: number[] = [64, 34, 25, 12, 22, 11, 90, 5];
+export const testArr3: number[] = [170, 45, 75, 90, 802, 24, 2, 66];
 
 //ts-node sort.ts 이런 명령어로 터미널에서 콘솔 실행 가능 (npm install -g ts-node typescript 설치 필요)
