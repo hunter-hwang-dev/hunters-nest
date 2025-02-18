@@ -25,32 +25,57 @@ let grandchild2 = addNode("grandchild 2", child2);
 addNode("grandchild 3", child2);
 
 addNode("grand-grandchild 1", grandchild2);
-console.log(rootNode);
+//console.log(rootNode);
+//----------------------------------------------------------------------
 
-const treeContainer = document.getElementById("tree-container");
+const btn = document.getElementById("btn");
+const ROOT = document.getElementById("ROOT");
 
-let ulTree = document.createElement("ul");
-
-document.getElementById("root").addEventListener("click", function () {
-  ulTree.classList.add("tree");
-  treeContainer.appendChild(ulTree);
+btn.addEventListener("click", function () {
+  rootNode.child.forEach((child) => {
+    let divFolder = document.createElement("div");
+    divFolder.classList.add("folder");
+    divFolder.id = child.data;
+    divFolder.innerText = child.data;
+    ROOT.appendChild(divFolder);
+  });
 });
 
-document.getElementById("parent1").addEventListener("click", function () {
-  let divFolder = document.createElement("div");
-  divFolder.classList.add("folder");
-  divFolder.innerText = "parent 1";
-  ulTree.appendChild(divFolder);
-});
-document.getElementById("parent2").addEventListener("click", function () {
-  let divFolder = document.createElement("div");
-  divFolder.classList.add("folder");
-  divFolder.innerText = "parent 2";
-  ulTree.appendChild(divFolder);
-});
-document.getElementById("parent3").addEventListener("click", function () {
-  let divFolder = document.createElement("div");
-  divFolder.classList.add("folder");
-  divFolder.innerText = "parent 3";
-  ulTree.appendChild(divFolder);
-});
+// document.getElementById("parent1").addEventListener("click", function () {
+//   let divFolder = document.createElement("div");
+//   divFolder.classList.add("folder");
+//   divFolder.innerText = "parent 1";
+//   root.appendChild(divFolder);
+// });
+// document.getElementById("parent2").addEventListener("click", function () {
+//   let divFolder = document.createElement("div");
+//   divFolder.classList.add("folder");
+//   divFolder.innerText = "parent 2";
+//   root.appendChild(divFolder);
+// });
+// document.getElementById("parent3").addEventListener("click", function () {
+//   let divFolder = document.createElement("div");
+//   divFolder.classList.add("folder");
+//   divFolder.innerText = "parent 3";
+//   root.appendChild(divFolder);
+// });
+
+// document.getElementById("child1").addEventListener("click", function () {
+//   let parent2 = doc;
+//   let divFolder = document.createElement("div");
+//   divFolder.classList.add("folder");
+//   divFolder.innerText = "parent 1";
+//   ulTree.appendChild(divFolder);
+// });
+// document.getElementById("parent2").addEventListener("click", function () {
+//   let divFolder = document.createElement("div");
+//   divFolder.classList.add("folder");
+//   divFolder.innerText = "parent 2";
+//   ulTree.appendChild(divFolder);
+// });
+// document.getElementById("parent3").addEventListener("click", function () {
+//   let divFolder = document.createElement("div");
+//   divFolder.classList.add("folder");
+//   divFolder.innerText = "parent 3";
+//   ulTree.appendChild(divFolder);
+// });
