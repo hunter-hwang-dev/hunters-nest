@@ -5,52 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
+  <body class="sketch">
     <style>
       .sticker-container {
         position: absolute;
+        top: 50%;
+        left: 50%;
         cursor: move;
       }
       .sticker {
         position: relative;
+        filter: drop-shadow(rgba(61, 58, 53, 0.753) 0rem 0.25rem 0.1rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .sticker-memo {
-        width: 200px;
-        text-align: center;
+        width: max-content;
         position: absolute;
+        text-align: center;
         z-index: 1;
+        color: white;
+        font-family: "Pretendard";
       }
       .sticker-img {
         position: absolute;
-        filter: drop-shadow(rgba(61, 58, 53, 0.753) 0rem 0.25rem 0.1rem);
+      }
+      .sketch {
+        height: 480px;
+        background-size: 24px 24px;
+        background-image: linear-gradient(
+            to right,
+            rgb(60, 105, 225) 1px,
+            transparent 1px
+          ),
+          linear-gradient(to bottom, rgb(60, 105, 225) 1px, transparent 1px);
       }
     </style>
 
     <div
-      id="1234"
+      id="0"
       class="sticker-container"
       draggable="true"
       ondragstart="drag(event)"
     >
       <div class="sticker" draggable="false">
-        <div class="sticker-memo" draggable="false">여기에 입력</div>
+        <div class="sticker-memo" draggable="false" contenteditable="true">
+          여기에 입력
+        </div>
+        <img class="sticker-img" src="sticker00.svg" draggable="false" />
+      </div>
+    </div>
+
+    <div
+      id="1"
+      class="sticker-container"
+      draggable="true"
+      ondragstart="drag(event)"
+    >
+      <div class="sticker" draggable="false">
+        <div class="sticker-memo" draggable="false" contenteditable="true">
+          여기에 입력
+        </div>
         <img
           class="sticker-image"
           style="position: absolute"
-          src="sticker00.svg"
+          src="sticker01.svg"
+          draggable="false"
+        />
+      </div>
+    </div>
+
+    <div
+      id="2"
+      class="sticker-container"
+      draggable="true"
+      ondragstart="drag(event)"
+    >
+      <div class="sticker" draggable="false">
+        <div class="sticker-memo" draggable="false" contenteditable="true">
+          여기에 입력
+        </div>
+        <img
+          class="sticker-image"
+          style="position: absolute"
+          src="sticker02.svg"
           draggable="false"
         />
       </div>
     </div>
 
     <script>
-
       let offsetX = 0;
       let offsetY = 0;
 
       function drag(event) {
         offsetX = event.offsetX;
-        offsetY = event.offsetY;\
+        offsetY = event.offsetY;
         event.dataTransfer.setData("text", event.target.id);
       }
 
