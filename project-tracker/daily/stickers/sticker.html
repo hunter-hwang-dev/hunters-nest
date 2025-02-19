@@ -44,13 +44,13 @@
     </div>
 
     <script>
+
       let offsetX = 0;
       let offsetY = 0;
+
       function drag(event) {
-        console.log(event.target.id);
         offsetX = event.offsetX;
-        offsetY = event.offsetY;
-        console.log(offsetX, offsetY);
+        offsetY = event.offsetY;\
         event.dataTransfer.setData("text", event.target.id);
       }
 
@@ -69,7 +69,6 @@
         var mouseX = event.clientX;
         var mouseY = event.clientY;
 
-        console.log(draggedElement.offsetWidth, draggedElement.offsetHeight);
         // 드래그된 요소를 마우스 좌표에 위치시키기
         draggedElement.style.left = mouseX - offsetX + "px";
         draggedElement.style.top = mouseY - offsetY + "px";
