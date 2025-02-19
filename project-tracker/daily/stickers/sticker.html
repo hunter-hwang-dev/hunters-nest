@@ -7,57 +7,41 @@
   </head>
   <body>
     <style>
-      img {
-        /* position: absolute;
-        cursor: move; */
+      .sticker-container {
+        position: absolute;
+        cursor: move;
+      }
+      .sticker {
+        position: relative;
+      }
+      .sticker-memo {
+        width: 200px;
+        text-align: center;
+        position: absolute;
+        z-index: 1;
+      }
+      .sticker-img {
+        position: absolute;
         filter: drop-shadow(rgba(61, 58, 53, 0.753) 0rem 0.25rem 0.1rem);
       }
     </style>
 
     <div
-      style="position: absolute"
-      id="sticker00"
+      id="1234"
+      class="sticker-container"
       draggable="true"
       ondragstart="drag(event)"
     >
-      <div style="position: relative" draggable="false">
-        <input
-          type="text"
+      <div class="sticker" draggable="false">
+        <div class="sticker-memo" draggable="false">여기에 입력</div>
+        <img
+          class="sticker-image"
+          style="position: absolute"
+          src="sticker00.svg"
           draggable="false"
-          style="text-align: center; position: absolute; z-index: 1"
         />
-        <img style="position: absolute" src="sticker00.svg" draggable="false" />
       </div>
     </div>
-
-    <!-- <div>
-      <img
-        id="sticker01"
-        draggable="true"
-        ondragstart="drag(event)"
-        src="sticker01.svg"
-      />
-    </div> -->
-
-    <!-- <div
-      class="container"
-      id="sticker00"
-      draggable="true"
-      ondragstart="drag(event)"
-    >
-      <img src="sticker00.svg" draggable="false" />
-    </div>
-
-    <style>
-      .sticker-container {
-        position: absolute;
-        cursor: move;
-      }
-      img {
-        position: relative;
-        filter: drop-shadow(rgba(61, 58, 53, 0.753) 0rem 0.25rem 0.1rem);
-      }
-    </style> -->
 
     <script>
       function drag(ev) {
