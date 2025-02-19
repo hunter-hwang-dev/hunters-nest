@@ -44,9 +44,14 @@
     </div>
 
     <script>
-      function drag(ev) {
-        console.log(ev.target.id);
-        ev.dataTransfer.setData("text", ev.target.id);
+      let offsetX = 0;
+      let offsetY = 0;
+      function drag(event) {
+        console.log(event.target.id);
+        offsetX = event.offsetX;
+        offsetY = event.offsetY;
+        console.log(offsetX, offsetY);
+        event.dataTransfer.setData("text", event.target.id);
       }
 
       document.addEventListener("dragover", function (event) {
@@ -64,11 +69,10 @@
         var mouseX = event.clientX;
         var mouseY = event.clientY;
 
+        console.log(draggedElement.offsetWidth, draggedElement.offsetHeight);
         // 드래그된 요소를 마우스 좌표에 위치시키기
-        draggedElement.style.left =
-          mouseX - draggedElement.offsetWidth / 2 + "px";
-        draggedElement.style.top =
-          mouseY - draggedElement.offsetHeight / 2 + "px";
+        draggedElement.style.left = mouseX - offsetX + "px";
+        draggedElement.style.top = mouseY - offsetY + "px";
 
         // 드래그된 요소를 body에 추가하기
         document.body.appendChild(draggedElement);
