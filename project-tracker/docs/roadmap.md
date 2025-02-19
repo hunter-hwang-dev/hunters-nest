@@ -132,9 +132,39 @@ OS가 파일 디렉토리 관리하는 방법?
 draggable library 사용해 볼까? drop 요소에 들어가고 안 들어가고가 포인트네.
 캔버스, 그리기 이런 쪽을 찾아보아야 할 것 같은데, 막상 살펴보니 원하는 방향이 아님.
 
+추가된 스티커를 드래그 앤 드롭으로 움직이고, 안에 센터 정렬된 div 텍스트 박스가 있는 형태를 테스트 중.
+
+고민: sticker 생성 시마다 정중앙 좌표도 constant로 보낼 수 있기는 한데, 글자 입력 시에도 중심이 고정이 되게 하는 것이 관건.
+고민 2: ppt처럼 도형 내 텍스트박스의 상대 위치를 섬세 조정할 수 있는 기능? (중요도 하)
+고민 3: drag 떼어냈을 때 내가 drag한 도형이 draggable이랑 닿으면 그거 적어둬서, 나중에 쭉 늘려도 node 이어지는 형태로 보여줄 수 있지 않을까?
+고민 4: 기록한 메모 및 도형 이름, 위치 등 localStorage에 저장(우선 서버 없이도 새로고침 시에 갱신 안되는 것부터) > 서버에 저장() (중요도 상!)
+
+- 어떻게 현재 스티커 위치 및 내용을 '스냅샷'으로 찍을지 고민:
+  Object 하나로 묶을까? {
+  recordedAt: "2025-02-19T10:34:50Z",
+  stickers: [
+  {memo: "여기에 입력", containerId: "0", imgSrc: "sticker00.svg", styleLeftPx: 123, styleTopPx: 56},
+  {memo: "여기에 입력", containerId: "1", imgSrc: "sticker01.svg", styleLeftPx: 123, styleTopPx: 56},
+  {memo: "여기에 입력", containerId: "2", imgSrc: "sticker02.svg", styleLeftPx: 123, styleTopPx: 56}
+  ]
+  }
+
+- 서버비 줄이는 택배묶음 종류
+  a. Batch Update: 일정 시간이나 특정 조건이 충족될 때까지 모았다가 한 번에 서버로 전송하는 방식. 서버 부하와 네트워크 비용을 줄일 때 유용
+  b. Debouncing: 사용자가 멈출 때까지 기다렸다가 서버에 업데이트 전송
+  c. Throttling: 일정 시간 간격으로만 서버에 전송(예: 2초에 한 번).
+
+- 그러면 가장 구현하기 쉬운 MVP는, 저장 버튼 눌렀을 때에만 스냅샷을 서버에 한 번 보내는 방식이겠군!
+
+고민 5: 서버를 개인 정보 저장에 쓰려면 비밀번호 암호화가 필요하지 않아?
+
+고민 6: ppt처럼 svg 리사이징, 변형? (중요도 하)
+
+고민 7: 더 커지면 snapshots들을 500개 정도 localStorage에 저장해놓고 뒤로가기, 되돌리기 기능도 구현 가능하겠네!
+
 ## ⚡ 바로 할 일!
 
-<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">2025-02-15 11:05:14 아휴 오늘은 이제 좀 쉬자.</span> (예상 소요: )
+<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">sticker.html에서 더블 클릭 시 text 상자 추가하는 기능?</span>
 
 ## 🛣️ 그 다음 목표?
 
