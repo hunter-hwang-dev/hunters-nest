@@ -6,15 +6,14 @@
     <title>Document</title>
   </head>
   <body>
-    <style>
+    <!-- <style>
       img {
         position: absolute;
         cursor: move;
         filter: drop-shadow(rgba(61, 58, 53, 0.753) 0rem 0.25rem 0.1rem);
       }
-    </style>
-
-    <img
+    </style> -->
+    <!-- <img
       id="sticker00"
       draggable="true"
       ondragstart="drag(event)"
@@ -25,13 +24,42 @@
       draggable="true"
       ondragstart="drag(event)"
       src="sticker01.svg"
-    />
-    <img
-      id="sticker02"
+    /> -->
+
+    <div
+      class="container"
+      id="sticker"
       draggable="true"
       ondragstart="drag(event)"
-      src="sticker02.svg"
-    />
+    >
+      <img id="sticker00" src="sticker00.svg" />
+      <div class="text">여기에 글자 입력</div>
+    </div>
+
+    <style>
+      .container {
+        position: relative; /* 부모 요소의 위치를 상대적으로 설정 */
+        width: 200px; /* 컨테이너 크기 */
+        height: 200px; /* 컨테이너 크기 */
+      }
+
+      #sticker00 {
+        width: 100%; /* 이미지 크기 맞춤 */
+        height: 100%; /* 이미지 크기 맞춤 */
+        display: block; /* 이미지 아래 여백 제거 */
+      }
+
+      .text {
+        position: absolute; /* 텍스트를 이미지 위에 절대 위치로 배치 */
+        top: 50%; /* 상하 중앙 */
+        left: 50%; /* 좌우 중앙 */
+        transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        z-index: 1; /* 텍스트가 이미지 위에 오도록 */
+      }
+    </style>
 
     <script>
       function drag(ev) {
