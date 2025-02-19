@@ -41,6 +41,28 @@
           ),
           linear-gradient(to bottom, rgb(60, 105, 225) 1px, transparent 1px);
       }
+      .hover {
+        /* 화면 하단 중간에 파란색 ~ 흰 ~ 회색, 상하좌우 전부 100% 라운드 처리 된 도형에서 끄집어낼 수 있는 스티커 템플릿들.
+        스크롤 돌리든 화면 어디로 가든 절대적으로 화면 아래에서 대략 몇십 px 떨어져 있고 가운데 정렬되어 있음 */
+        position: fixed;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: 50px;
+        width: 50%;
+        height: 100px;
+        background-color: rgb(203, 212, 238);
+        border-radius: 50px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .sticker-sample {
+        width: 20%;
+        padding: 20px;
+        filter: drop-shadow(rgba(61, 58, 53, 0.753) 0rem 0.25rem 0.1rem);
+      }
     </style>
 
     <div
@@ -95,6 +117,27 @@
       </div>
     </div>
 
+    <div id="hover" class="hover">
+      <img
+        id="sample00"
+        class="sticker-sample"
+        src="sticker00.svg"
+        draggable="true"
+        ondragstart="dragSample(event)"
+      />
+      <img
+        id="sample01"
+        class="sticker-sample"
+        src="sticker01.svg"
+        draggable="true"
+      />
+      <img
+        id="sample02"
+        class="sticker-sample"
+        src="sticker02.svg"
+        draggable="true"
+      />
+    </div>
     <script>
       let offsetX = 0;
       let offsetY = 0;
@@ -102,6 +145,10 @@
       function drag(event) {
         offsetX = event.offsetX;
         offsetY = event.offsetY;
+        event.dataTransfer.setData("text", event.target.id);
+      }
+
+      function dragSample(event) {
         event.dataTransfer.setData("text", event.target.id);
       }
 
@@ -114,18 +161,45 @@
         console.log(event);
 
         var data = event.dataTransfer.getData("text"); // 드래그된 요소의 ID 가져오기
-        var draggedElement = document.getElementById(data); // ID를 사용하여 드래그된 요소 가져오기
+        if (data !== "sample00" && data !== "sample01" && data !== "sample02") {
+          var draggedElement = document.getElementById(data); // ID를 사용하여 드래그된 요소 가져오기
 
-        // 마우스 좌표 가져오기
-        var mouseX = event.clientX;
-        var mouseY = event.clientY;
+          // 마우스 좌표 가져오기
+          var mouseX = event.clientX;
+          var mouseY = event.clientY;
 
-        // 드래그된 요소를 마우스 좌표에 위치시키기
-        draggedElement.style.left = mouseX - offsetX + "px";
-        draggedElement.style.top = mouseY - offsetY + "px";
+          // 드래그된 요소를 마우스 좌표에 위치시키기
+          draggedElement.style.left = mouseX - offsetX + "px";
+          draggedElement.style.top = mouseY - offsetY + "px";
 
-        // 드래그된 요소를 body에 추가하기
-        document.body.appendChild(draggedElement);
+          // 드래그된 요소를 body에 추가하기
+          document.body.appendChild(draggedElement);
+        } else {
+          var draggedElementHTML = `<div
+        id="0"
+        class="sticker-container"
+        draggable="true"
+        ondragstart="drag(event)"
+      >
+        <div class="sticker" draggable="false">
+          <div class="sticker-memo" draggable="false" contenteditable="true">
+            여기에 입력
+          </div>
+          <img class="sticker-img" src="sticker00.svg" draggable="false" />
+        </div>
+      </div>`;
+
+          // 문자열을 DOM 요소로 변환
+          var tempDiv = document.createElement("div");
+          tempDiv.innerHTML = draggedElementHTML;
+          var draggedElement = tempDiv.firstElementChild;
+
+          // 마우스 위치에 맞게 요소 위치 설정
+          draggedElement.style.left = event.clientX + "px";
+          draggedElement.style.top = event.clientY + "px";
+
+          document.body.appendChild(draggedElement);
+        }
       });
     </script>
   </body>
