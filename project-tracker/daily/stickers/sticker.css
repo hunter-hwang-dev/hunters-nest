@@ -54,3 +54,10 @@
   padding: 20px;
   filter: drop-shadow(rgba(61, 58, 53, 0.753) 0rem 0.25rem 0.1rem);
 }
+.btn {
+  all: unset;
+  background-color: rgb(60, 105, 225);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}

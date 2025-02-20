@@ -1,5 +1,5 @@
 let stickers = [
-  { id: 0, text: "여기에 입력" },
+  { id: 0, text: "여기에 입력" }, //좌표, 이미지 경로 또는 이미지 일련번호 같은 값이 들어가야 됨
   { id: 1, text: "여기에 입력" },
   { id: 2, text: "여기에 입력" },
 ]; //기존에 있던 스티커들 id
@@ -14,6 +14,19 @@ document.body.addEventListener(
   },
   true
 );
+
+const saveBtn = document.getElementById("save");
+saveBtn.addEventListener("click", (e) => {
+  localStorage.setItem("sketch", stickers);
+});
+
+//시작할때
+
+function initSketch() {
+  if (localStorage.getItem("sketch")) {
+    //화면에 스케치 뿌리기
+  }
+}
 
 function refreshSticker(target) {
   const container = target.closest(".sticker-container"); // 상위 컨테이너 찾기
