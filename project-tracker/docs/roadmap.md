@@ -173,9 +173,19 @@ draggable library 사용해 볼까? drop 요소에 들어가고 안 들어가고
   Stack: 만약 놀이공원 줄서기가 Stack이라면 일찍 온 사람이 개손해임. 현실에서 Stack 볼 수 있는 경우:
   막내 인턴이 커피 사러 가는데, 막내 인턴 빠지면 둘째 막내 사원이 커피 사오는 거임
 
+  빨간 줄 그이는 거 신경쓰이는데 브라우저에서 못 끄는 건가
+
+  #### `2025-02-20 목요일` sticker.html 다듬기 (아 하기 싫어)
+
 ## ⚡ 바로 할 일!
 
-<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">sticker.html에서 더블 클릭 시 text 상자 추가하는 기능?</span>
+<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">sticker.html에서 더블 클릭 시 text 상자 추가하는 기능?</span> 글쎄
+
+<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">"스냅샷" 오브젝트에 들어갈 값 콘솔로 일일이 찍어서 json으로 저장 -> 불러오기 (최종 구현은 저장 기능이지만)</span>
+
+깔끔히 누끼따져블 사각형이지만 눈대중 간격은 정확하지 않은거 신경쓰이는데, 이건 정말 hover 따로 떼어내서 안에 들어간 div 페르소나 노가다 해야 할 수밖에 없지 않아? (픽셀 단위로 조절해 본다는 뜻)
+
+아 그리고 지금 드래그 호버보드(이 둥둥떠 ui 부르는 말 정확히 있을텐데 여튼) 위에다 올리면 위에다 그려지는데, 취향preference이지만 호버 탭을 누르면 호버가 무조건 위로 올라와야 된다 (그리고 호버에서 핸들 버튼 잡고 드래그하면 돌아다녀야됨)
 
 ## 🛣️ 그 다음 목표?
 
