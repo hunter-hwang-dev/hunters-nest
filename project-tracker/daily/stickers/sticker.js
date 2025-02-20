@@ -1,4 +1,8 @@
-let stickers = [];
+let stickers = [
+  { id: 0, text: "여기에 입력" },
+  { id: 1, text: "여기에 입력" },
+  { id: 2, text: "여기에 입력" },
+]; //기존에 있던 스티커들 id
 let offsetX = 0;
 let offsetY = 0;
 
@@ -38,6 +42,7 @@ document.addEventListener("drop", function (event) {
     let code = findSample(data);
     let sticker = {};
     sticker.id = stickers.length;
+    sticker.text = "여기에 입력";
 
     var draggedElementHTML = `<div
         id="${sticker.id}"
