@@ -6,6 +6,23 @@ let stickers = [
 let offsetX = 0;
 let offsetY = 0;
 
+document.querySelectorAll(".sticker-memo").forEach((memo) => {
+  memo.addEventListener("blur", (e) => {
+    //요소가 포커스 잃을 때 발생하는 "blur" 이벤트
+    const container = e.target.closest(".sticker-container"); // 상위 컨테이너 찾기
+    //e.target.closest는 부모 > 조부모 > 조조부모... 이렇게 node 타다가 해당하는 것 있으면 멈추고 반환.
+
+    if (container) {
+      const id = parseInt(container.id); // id 추출
+      const sticker = stickers.find((s) => s.id === id); // 해당 sticker 찾기
+      if (sticker) {
+        sticker.text = e.target.innerText; // 내용 업데이트
+        console.log(`Sticker ${id} updated:`, sticker.text); // 디버깅 로그
+      }
+    }
+  });
+});
+
 function drag(event) {
   offsetX = event.offsetX;
   offsetY = event.offsetY;
