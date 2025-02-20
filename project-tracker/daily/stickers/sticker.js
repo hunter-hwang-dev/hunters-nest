@@ -34,12 +34,13 @@ document.addEventListener("drop", function (event) {
 
     // 드래그된 요소를 body에 추가하기
     document.body.appendChild(draggedElement);
-  } else if (data === "sample00") {
+  } else {
+    let code = findSample(data);
     let sticker = {};
     sticker.id = stickers.length;
 
     var draggedElementHTML = `<div
-        id="0"
+        id="${sticker.id}"
         class="sticker-container"
         draggable="true"
         ondragstart="drag(event)"
@@ -48,63 +49,7 @@ document.addEventListener("drop", function (event) {
           <div class="sticker-memo" draggable="false" contenteditable="true">
             여기에 입력
           </div>
-          <img class="sticker-img" src="sticker00.svg" draggable="false" />
-        </div>
-      </div>`;
-
-    // 문자열을 DOM 요소로 변환
-    var tempDiv = document.createElement("div");
-    tempDiv.innerHTML = draggedElementHTML;
-    var draggedElement = tempDiv.firstElementChild;
-
-    // 마우스 위치에 맞게 요소 위치 설정
-    draggedElement.style.left = event.clientX + "px";
-    draggedElement.style.top = event.clientY + "px";
-
-    document.body.appendChild(draggedElement);
-    stickers.push(sticker);
-  } else if (data === "sample01") {
-    let sticker = {};
-    sticker.id = stickers.length;
-    var draggedElementHTML = `<div
-        id="1"
-        class="sticker-container"
-        draggable="true"
-        ondragstart="drag(event)"
-      >
-        <div class="sticker" draggable="false">
-          <div class="sticker-memo" draggable="false" contenteditable="true">
-            여기에 입력
-          </div>
-          <img class="sticker-img" src="sticker01.svg" draggable="false" />
-        </div>
-      </div>`;
-
-    // 문자열을 DOM 요소로 변환
-    var tempDiv = document.createElement("div");
-    tempDiv.innerHTML = draggedElementHTML;
-    var draggedElement = tempDiv.firstElementChild;
-
-    // 마우스 위치에 맞게 요소 위치 설정
-    draggedElement.style.left = event.clientX + "px";
-    draggedElement.style.top = event.clientY + "px";
-
-    document.body.appendChild(draggedElement);
-    stickers.push(sticker);
-  } else if (data === "sample02") {
-    let sticker = {};
-    sticker.id = stickers.length;
-    var draggedElementHTML = `<div
-        id="2"
-        class="sticker-container"
-        draggable="true"
-        ondragstart="drag(event)"
-      >
-        <div class="sticker" draggable="false">
-          <div class="sticker-memo" draggable="false" contenteditable="true">
-            여기에 입력
-          </div>
-          <img class="sticker-img" src="sticker02.svg" draggable="false" />
+          <img class="sticker-img" src="sticker${code}.svg" draggable="false" />
         </div>
       </div>`;
 
@@ -121,3 +66,9 @@ document.addEventListener("drop", function (event) {
     stickers.push(sticker);
   }
 });
+
+function findSample(data) {
+  if (data === "sample00") return "00";
+  else if (data === "sample01") return "01";
+  else if (data === "sample02") return "02";
+}
