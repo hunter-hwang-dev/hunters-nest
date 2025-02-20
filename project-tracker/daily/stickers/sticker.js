@@ -1,3 +1,4 @@
+let stickers = [];
 let offsetX = 0;
 let offsetY = 0;
 
@@ -58,6 +59,8 @@ document.addEventListener("drop", function (event) {
     draggedElement.style.top = event.clientY + "px";
 
     document.body.appendChild(draggedElement);
+    let id = stickers.length;
+    stickers.push(id);
   } else if (data === "sample01") {
     var draggedElementHTML = `<div
         id="1"
@@ -83,6 +86,8 @@ document.addEventListener("drop", function (event) {
     draggedElement.style.top = event.clientY + "px";
 
     document.body.appendChild(draggedElement);
+    let id = stickers.length;
+    stickers.push(id);
   } else if (data === "sample02") {
     var draggedElementHTML = `<div
         id="2"
@@ -108,5 +113,7 @@ document.addEventListener("drop", function (event) {
     draggedElement.style.top = event.clientY + "px";
 
     document.body.appendChild(draggedElement);
+    let id = stickers.length;
+    stickers.push(id);
   }
 });
