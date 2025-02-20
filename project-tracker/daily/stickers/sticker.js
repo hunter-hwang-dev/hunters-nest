@@ -35,6 +35,9 @@ document.addEventListener("drop", function (event) {
     // 드래그된 요소를 body에 추가하기
     document.body.appendChild(draggedElement);
   } else if (data === "sample00") {
+    let sticker = {};
+    sticker.id = stickers.length;
+
     var draggedElementHTML = `<div
         id="0"
         class="sticker-container"
@@ -59,9 +62,10 @@ document.addEventListener("drop", function (event) {
     draggedElement.style.top = event.clientY + "px";
 
     document.body.appendChild(draggedElement);
-    let id = stickers.length;
-    stickers.push(id);
+    stickers.push(sticker);
   } else if (data === "sample01") {
+    let sticker = {};
+    sticker.id = stickers.length;
     var draggedElementHTML = `<div
         id="1"
         class="sticker-container"
@@ -86,9 +90,10 @@ document.addEventListener("drop", function (event) {
     draggedElement.style.top = event.clientY + "px";
 
     document.body.appendChild(draggedElement);
-    let id = stickers.length;
-    stickers.push(id);
+    stickers.push(sticker);
   } else if (data === "sample02") {
+    let sticker = {};
+    sticker.id = stickers.length;
     var draggedElementHTML = `<div
         id="2"
         class="sticker-container"
@@ -113,7 +118,6 @@ document.addEventListener("drop", function (event) {
     draggedElement.style.top = event.clientY + "px";
 
     document.body.appendChild(draggedElement);
-    let id = stickers.length;
-    stickers.push(id);
+    stickers.push(sticker);
   }
 });
