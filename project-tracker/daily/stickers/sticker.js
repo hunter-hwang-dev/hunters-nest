@@ -3,46 +3,45 @@ let stickers = [
   { id: 1, text: "여기에 입력", left: "237px", top: "892.5px" },
   { id: 2, text: "여기에 입력", left: "237px", top: "892.5px" },
 ]; //기존에 있던 스티커들 id
+
 let offsetX = 0;
 let offsetY = 0;
 
 const id0 = document.getElementById("0");
-const xy = document.getElementById("xy");
-xy.addEventListener("click", (e) => {
-  const computedStyle = window.getComputedStyle(id0);
-  console.log(computedStyle.left, computedStyle.top);
-});
+// const xy = document.getElementById("xy");
+// xy.addEventListener("click", (e) => {
+//   const computedStyle = window.getComputedStyle(id0);
+//   console.log(computedStyle.left, computedStyle.top);
+// });
 
-document.body.addEventListener(
-  "blur",
-  (e) => {
-    if (e.target.classList.contains("sticker-memo")) {
-      refreshSticker(e.target);
-    }
-  },
-  true
-);
+function stickerTextRefresh() {
+  document.body.addEventListener(
+    "blur",
+    (e) => {
+      if (e.target.classList.contains("sticker-memo")) {
+        refreshSticker(e.target);
+      }
+    },
+    true
+  );
+}
 
 const saveBtn = document.getElementById("save");
-const loadBtn = document.getElementById("load");
+
 saveBtn.addEventListener("click", (e) => {
   localStorage.setItem("sketch", JSON.stringify(stickers));
 });
-loadBtn.addEventListener("click", (e) => {
-  let loaded = JSON.parse(localStorage.getItem("sketch"));
-  console.log(loaded);
-  loaded.forEach((element) => {
-    console.log(element);
-  });
-});
-
-//시작할때
 
 function initSketch() {
+  //시작 시
   if (localStorage.getItem("sketch")) {
-    //화면에 스케치 뿌리기
+    let loaded = JSON.parse(localStorage.getItem("sketch"));
+    console.log(loaded);
   }
 }
+
+initSketch();
+stickerTextRefresh();
 
 function refreshSticker(target) {
   const container = target.closest(".sticker-container"); // 상위 컨테이너 찾기
