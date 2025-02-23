@@ -104,7 +104,7 @@ document.addEventListener("drop", function (event) {
           <div class="sticker-memo" draggable="false" contenteditable="true">
             여기에 입력
           </div>
-          <img class="sticker-img" src="sticker${code}.svg" draggable="false" />
+          <img class="sticker-img" src="svg/sticker${code}.svg" draggable="false" />
         </div>
       </div>`;
 

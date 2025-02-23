@@ -217,6 +217,8 @@ at HTMLButtonElement.<anonymous> (sticker.js:26:10)
 
    초기 상태 237px 892.5px 이니까 우선 매뉴얼리 적어 하드코딩 해.
 
+3. 어휴 정신 없어 (샘플)스티커팩을 한 파일에 모다두고 모듈로 불러오자
+
 ## ⚡ 바로 할 일!
 
 <span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">sticker.html에서 더블 클릭 시 text 상자 추가하는 기능?</span> 글쎄
