@@ -1,10 +1,18 @@
 let stickers = [
-  { id: 0, text: "여기에 입력" }, //좌표, 이미지 경로 또는 이미지 일련번호 같은 값이 들어가야 됨
-  { id: 1, text: "여기에 입력" },
-  { id: 2, text: "여기에 입력" },
+  { id: 0, text: "여기에 입력", left: "237px", top: "892.5px" }, //좌표, 이미지 경로 또는 이미지 일련번호 같은 값이 들어가야 됨
+  { id: 1, text: "여기에 입력", left: "237px", top: "892.5px" },
+  { id: 2, text: "여기에 입력", left: "237px", top: "892.5px" },
 ]; //기존에 있던 스티커들 id
 let offsetX = 0;
 let offsetY = 0;
+
+const id0 = document.getElementById("0");
+const xy = document.getElementById("xy");
+xy.addEventListener("click", (e) => {
+  const computedStyle = window.getComputedStyle(id0);
+  console.log(computedStyle.left, computedStyle.top);
+});
+
 document.body.addEventListener(
   "blur",
   (e) => {
@@ -106,8 +114,10 @@ document.addEventListener("drop", function (event) {
     var draggedElement = tempDiv.firstElementChild;
 
     // 마우스 위치에 맞게 요소 위치 설정
-    draggedElement.style.left = event.clientX + "px";
-    draggedElement.style.top = event.clientY + "px";
+    sticker.left = event.clientX + "px";
+    sticker.top = event.clientY + "px";
+    draggedElement.style.left = sticker.left;
+    draggedElement.style.top = sticker.top;
 
     document.body.appendChild(draggedElement);
     stickers.push(sticker);

@@ -187,12 +187,13 @@ draggable library 사용해 볼까? drop 요소에 들어가고 안 들어가고
   #### `2025-02-24 월요일` 주말 쉬고 돌아옴!
 
   할 troubleshooting
-  원래 창 갱신 시에 바로 로딩해야 하지만 코드가 어딨는지 찾기 어려울것 같아서 임시 버튼 만듬
-  근데 지금 stickers = [
-  { id: 0, text: "여기에 입력" }, //좌표, 이미지 경로 또는 이미지 일련번호 같은 값이 들어가야 됨
-  { id: 1, text: "여기에 입력" },
-  { id: 2, text: "여기에 입력" },
-  ] 이런 형태인데
+
+1. 원래 창 갱신 시에 바로 로딩해야 하지만 코드가 어딨는지 찾기 어려울것 같아서 임시 버튼 만듬
+   근데 지금 stickers = [
+   { id: 0, text: "여기에 입력" }, //좌표, 이미지 경로 또는 이미지 일련번호 같은 값이 들어가야 됨
+   { id: 1, text: "여기에 입력" },
+   { id: 2, text: "여기에 입력" },
+   ] 이런 형태인데
 
 localStorage.setItem("sketch", stickers)
 let loaded = localStorage.getItem("sketch");
@@ -209,6 +210,12 @@ at HTMLButtonElement.<anonymous> (sticker.js:26:10)
 
 아 localStorage는 문자열만 저장 가능 > 저장 시에는 JSON.stringify로 변환
 불러올 때도 JSON.parse로 다시 변환해야!!
+
+2. html 요소 좌표 가져오기
+   id0.style.left와 id0.style.top은 인라인 스타일만 가져와서 내장된 값은 못찾음
+   브라우저가 계산한 모든 스타일 값을 가져오려면 window.getComputedStyle() 쓰라며.
+
+   초기 상태 237px 892.5px 이니까 우선 매뉴얼리 적어 하드코딩 해.
 
 ## ⚡ 바로 할 일!
 
