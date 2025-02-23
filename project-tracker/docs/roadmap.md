@@ -184,6 +184,32 @@ draggable library 사용해 볼까? drop 요소에 들어가고 안 들어가고
   이런 상황 해결 위해 이벤트 위임 (Event Delegation) 쓴다.
   부모 요소에 이벤트 리스너를 붙이고, 이벤트 발생 시 타겟을 확인하는 방식임.
 
+  #### `2025-02-24 월요일` 주말 쉬고 돌아옴!
+
+  할 troubleshooting
+  원래 창 갱신 시에 바로 로딩해야 하지만 코드가 어딨는지 찾기 어려울것 같아서 임시 버튼 만듬
+  근데 지금 stickers = [
+  { id: 0, text: "여기에 입력" }, //좌표, 이미지 경로 또는 이미지 일련번호 같은 값이 들어가야 됨
+  { id: 1, text: "여기에 입력" },
+  { id: 2, text: "여기에 입력" },
+  ] 이런 형태인데
+
+localStorage.setItem("sketch", stickers)
+let loaded = localStorage.getItem("sketch");
+loaded.forEach((element) => {
+console.log(element);
+});
+
+< 이게 타입 에러가 걸려서 황당;
+
+```
+Uncaught TypeError: Cannot read properties of null (reading 'forEach')
+at HTMLButtonElement.<anonymous> (sticker.js:26:10)
+```
+
+아 localStorage는 문자열만 저장 가능 > 저장 시에는 JSON.stringify로 변환
+불러올 때도 JSON.parse로 다시 변환해야!!
+
 ## ⚡ 바로 할 일!
 
 <span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">sticker.html에서 더블 클릭 시 text 상자 추가하는 기능?</span> 글쎄

@@ -16,8 +16,16 @@ document.body.addEventListener(
 );
 
 const saveBtn = document.getElementById("save");
+const loadBtn = document.getElementById("load");
 saveBtn.addEventListener("click", (e) => {
-  localStorage.setItem("sketch", stickers);
+  localStorage.setItem("sketch", JSON.stringify(stickers));
+});
+loadBtn.addEventListener("click", (e) => {
+  let loaded = JSON.parse(localStorage.getItem("sketch"));
+  console.log(loaded);
+  loaded.forEach((element) => {
+    console.log(element);
+  });
 });
 
 //시작할때
