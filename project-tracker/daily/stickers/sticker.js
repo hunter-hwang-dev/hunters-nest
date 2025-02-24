@@ -1,4 +1,4 @@
-import { stickerpack, svg } from "./stickerpack.js";
+import { stickerpack, svg, stickerContainerHTML } from "./stickerpack.js";
 
 let stickers = [];
 
@@ -82,19 +82,7 @@ document.addEventListener("drop", function (event) {
     sticker.id = stickers.length;
     sticker.text = "여기에 입력";
 
-    var draggedElementHTML = `<div
-        id="${sticker.id}"
-        class="sticker-container"
-        draggable="true"
-        ondragstart="drag(event)"
-      >
-        <div class="sticker" draggable="false">
-          <div class="sticker-memo" draggable="false" contenteditable="true">
-            여기에 입력
-          </div>
-          <img class="sticker-img" src="${svg[index]}" draggable="false" />
-        </div>
-      </div>`;
+    var draggedElementHTML = stickerContainerHTML(sticker.id, svg[index]);
 
     // 문자열을 DOM 요소로 변환
     var tempDiv = document.createElement("div");

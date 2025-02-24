@@ -238,6 +238,10 @@ at HTMLButtonElement.<anonymous> (sticker.js:26:10)
 
 6. 텍스트 입력 후 id=save 버튼 누르면 localStorage 갱신되는데 좌표는 갱신 안되는 이유?
 
+7. let dragged = event.dataTransfer.getData("text/plain"); < 이거 타입이잖아
+   근데 "text/html" HTML 코드 전송 도 가능하고 "application/json" JSON 형식 전송 (커스텀 타입 예시) 도 가능하면
+   아예 스티커 째로 보내면 안됨?
+
 ## ⚡ 바로 할 일!
 
 <span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">sticker.html에서 더블 클릭 시 text 상자 추가하는 기능?</span> 글쎄
