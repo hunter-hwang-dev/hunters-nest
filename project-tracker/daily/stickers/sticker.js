@@ -78,9 +78,13 @@ document.addEventListener("drop", function (event) {
     document.body.appendChild(draggedElement);
   } else {
     const index = stickerpack.indexOf(data);
-    let sticker = {};
-    sticker.id = stickers.length;
-    sticker.text = "여기에 입력";
+
+    const sticker = {
+      id: stickers.length,
+      text: "여기에 입력",
+      left: `${event.clientX}px`,
+      top: `${event.clientY}px`,
+    };
 
     var draggedElementHTML = stickerContainerHTML(sticker.id, svg[index]);
 
@@ -90,8 +94,6 @@ document.addEventListener("drop", function (event) {
     var draggedElement = tempDiv.firstElementChild;
 
     // 마우스 위치에 맞게 요소 위치 설정
-    sticker.left = event.clientX + "px";
-    sticker.top = event.clientY + "px";
     draggedElement.style.left = sticker.left;
     draggedElement.style.top = sticker.top;
 

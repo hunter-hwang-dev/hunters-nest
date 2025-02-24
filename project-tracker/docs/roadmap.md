@@ -242,6 +242,8 @@ at HTMLButtonElement.<anonymous> (sticker.js:26:10)
    근데 "text/html" HTML 코드 전송 도 가능하고 "application/json" JSON 형식 전송 (커스텀 타입 예시) 도 가능하면
    아예 스티커 째로 보내면 안됨?
 
+8. 내용이 벌키해지면 읽기 어려워 insertAdjacentHTML 사용해서 코드 수정해 볼까;
+
 ## ⚡ 바로 할 일!
 
 <span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">sticker.html에서 더블 클릭 시 text 상자 추가하는 기능?</span> 글쎄
