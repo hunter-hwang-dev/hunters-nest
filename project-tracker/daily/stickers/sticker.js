@@ -64,7 +64,7 @@ document.addEventListener("drop", function (event) {
 
   let dragged = event.dataTransfer.getData("text/plain"); // 드래그된 요소의 ID 가져오기
   if (!stickerpack.includes(dragged)) {
-    var draggedElement = document.getElementById(data); // ID를 사용하여 드래그된 요소 가져오기
+    var draggedElement = document.getElementById(dragged); // ID를 사용하여 드래그된 요소 가져오기
 
     // 마우스 좌표 가져오기
     var mouseX = event.clientX;
@@ -77,7 +77,7 @@ document.addEventListener("drop", function (event) {
     // 드래그된 요소를 body에 추가하기
     document.body.appendChild(draggedElement);
   } else {
-    const index = stickerpack.indexOf(data);
+    const index = stickerpack.indexOf(dragged);
 
     const sticker = {
       id: stickers.length,
