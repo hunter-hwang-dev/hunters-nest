@@ -48,12 +48,20 @@ const id0 = document.getElementById("0");
 //   console.log(computedStyle.left, computedStyle.top);
 // });
 
-function stickerTextRefresh() {
+function refreshStickerText() {
   document.body.addEventListener(
     "blur",
-    (e) => {
-      if (e.target.classList.contains("sticker-memo")) {
-        refreshSticker(e.target);
+    (event) => {
+      if (event.target.classList.contains("sticker-memo")) {
+        const container = event.target.closest(".sticker-container");
+        if (container) {
+          const id = parseInt(container.id); // id 추출
+          const sticker = stickers.find((s) => s.id === id); // 해당 sticker 찾기
+          if (sticker) {
+            sticker.text = event.target.innerText; // 내용 업데이트
+            console.log(`Sticker ${id} updated:`, sticker.text); // 디버깅 로그
+          }
+        }
       }
     },
     true
@@ -70,18 +78,6 @@ function initSketch() {
   //시작 시
   const saved = localStorage.getItem("sketch");
   console.log(JSON.parse(saved));
-}
-
-function refreshSticker(target) {
-  const container = target.closest(".sticker-container"); // 상위 컨테이너 찾기
-  if (container) {
-    const id = parseInt(container.id); // id 추출
-    const sticker = stickers.find((s) => s.id === id); // 해당 sticker 찾기
-    if (sticker) {
-      sticker.text = target.innerText; // 내용 업데이트
-      console.log(`Sticker ${id} updated:`, sticker.text); // 디버깅 로그
-    }
-  }
 }
 
 document.addEventListener("dragover", function (event) {
@@ -143,4 +139,4 @@ document.addEventListener("drop", function (event) {
 });
 
 initSketch();
-stickerTextRefresh();
+refreshStickerText();

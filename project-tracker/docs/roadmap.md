@@ -236,6 +236,8 @@ at HTMLButtonElement.<anonymous> (sticker.js:26:10)
    HTML 인라인 이벤트 핸들러에서 모듈 내부 함수를 직접 호출할 수 없습니다.
    ```
 
+6. 텍스트 입력 후 id=save 버튼 누르면 localStorage 갱신되는데 좌표는 갱신 안되는 이유?
+
 ## ⚡ 바로 할 일!
 
 <span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">sticker.html에서 더블 클릭 시 text 상자 추가하는 기능?</span> 글쎄
