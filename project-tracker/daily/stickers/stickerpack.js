@@ -4,7 +4,7 @@ export const stickerpack = [
   "stickerpack-blue-02",
 ];
 
-export const wherearestickers = [
+export const svg = [
   "svg/sticker00.svg",
   "svg/sticker01.svg",
   "svg/sticker02.svg",

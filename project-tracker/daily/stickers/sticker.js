@@ -1,4 +1,4 @@
-import { stickerpack, wherearestickers } from "./stickerpack.js";
+import { stickerpack, svg } from "./stickerpack.js";
 
 let stickers = [
   {
@@ -118,7 +118,7 @@ document.addEventListener("drop", function (event) {
           <div class="sticker-memo" draggable="false" contenteditable="true">
             여기에 입력
           </div>
-          <img class="sticker-img" src="${wherearestickers[index]}" draggable="false" />
+          <img class="sticker-img" src="${svg[index]}" draggable="false" />
         </div>
       </div>`;
 
