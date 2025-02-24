@@ -1,31 +1,18 @@
 import { stickerpack, svg } from "./stickerpack.js";
 
-let stickers = [
-  {
-    id: 0,
-    text: "여기에 입력",
-    stickerpack: stickerpack[0],
-    left: "237px",
-    top: "892.5px",
-  }, //좌표, 이미지 경로 또는 이미지 일련번호 같은 값이 들어가야 됨
-  {
-    id: 1,
-    text: "여기에 입력",
-    stickerpack: stickerpack[1],
-    left: "237px",
-    top: "892.5px",
-  },
-  {
-    id: 2,
-    text: "여기에 입력",
-    stickerpack: stickerpack[2],
-    left: "237px",
-    top: "892.5px",
-  },
-]; //기존에 있던 스티커들 id
+let stickers = [];
+
+// initSketch();
+// refreshStickerText();
 
 let offsetX = 0;
 let offsetY = 0;
+
+const saveBtn = document.getElementById("save");
+
+saveBtn.addEventListener("click", (e) => {
+  localStorage.setItem("sketch", JSON.stringify(stickers));
+});
 
 function drag(event) {
   offsetX = event.offsetX;
@@ -35,49 +22,36 @@ function drag(event) {
 
 window.drag = drag;
 
-function dragSample(event) {
-  event.dataTransfer.setData("text", event.target.id);
-}
+window.stickerpackDrag = stickerpackDrag;
 
-window.dragSample = dragSample;
+// function refreshStickerText() {
+//   document.body.addEventListener(
+//     "blur",
+//     (event) => {
+//       if (event.target.classList.contains("sticker-memo")) {
+//         const container = event.target.closest(".sticker-container");
+//         if (container) {
+//           const id = parseInt(container.id); // id 추출
+//           const sticker = stickers.find((s) => s.id === id); // 해당 sticker 찾기
+//           if (sticker) {
+//             sticker.text = event.target.innerText; // 내용 업데이트
+//             console.log(`Sticker ${id} updated:`, sticker.text); // 디버깅 로그
+//           }
+//         }
+//       }
+//     },
+//     true
+//   );
+// }
 
-const id0 = document.getElementById("0");
-// const xy = document.getElementById("xy");
-// xy.addEventListener("click", (e) => {
-//   const computedStyle = window.getComputedStyle(id0);
-//   console.log(computedStyle.left, computedStyle.top);
-// });
+// function initSketch() {
+//   //시작 시
+//   const saved = localStorage.getItem("sketch");
+//   console.log(JSON.parse(saved));
+// }
 
-function refreshStickerText() {
-  document.body.addEventListener(
-    "blur",
-    (event) => {
-      if (event.target.classList.contains("sticker-memo")) {
-        const container = event.target.closest(".sticker-container");
-        if (container) {
-          const id = parseInt(container.id); // id 추출
-          const sticker = stickers.find((s) => s.id === id); // 해당 sticker 찾기
-          if (sticker) {
-            sticker.text = event.target.innerText; // 내용 업데이트
-            console.log(`Sticker ${id} updated:`, sticker.text); // 디버깅 로그
-          }
-        }
-      }
-    },
-    true
-  );
-}
-
-const saveBtn = document.getElementById("save");
-
-saveBtn.addEventListener("click", (e) => {
-  localStorage.setItem("sketch", JSON.stringify(stickers));
-});
-
-function initSketch() {
-  //시작 시
-  const saved = localStorage.getItem("sketch");
-  console.log(JSON.parse(saved));
+function stickerpackDrag(event) {
+  event.dataTransfer.setData("text/plain", event.target.id);
 }
 
 document.addEventListener("dragover", function (event) {
@@ -88,8 +62,8 @@ document.addEventListener("drop", function (event) {
   event.preventDefault();
   console.log(event);
 
-  var data = event.dataTransfer.getData("text"); // 드래그된 요소의 ID 가져오기
-  if (!stickerpack.includes(data)) {
+  let dragged = event.dataTransfer.getData("text/plain"); // 드래그된 요소의 ID 가져오기
+  if (!stickerpack.includes(dragged)) {
     var draggedElement = document.getElementById(data); // ID를 사용하여 드래그된 요소 가져오기
 
     // 마우스 좌표 가져오기
@@ -137,6 +111,3 @@ document.addEventListener("drop", function (event) {
     stickers.push(sticker);
   }
 });
-
-initSketch();
-refreshStickerText();
