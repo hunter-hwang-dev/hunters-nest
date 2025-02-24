@@ -217,7 +217,24 @@ at HTMLButtonElement.<anonymous> (sticker.js:26:10)
 
    초기 상태 237px 892.5px 이니까 우선 매뉴얼리 적어 하드코딩 해.
 
-3. 어휴 정신 없어 (샘플)스티커팩을 한 파일에 모다두고 모듈로 불러오자
+3. 어휴 정신 없어 (샘플)스티커팩을 한 파일에 모다두고 모듈로 불러오자. 근데 import 404 오류 뜸 - 파일명에 .js가 없어서 오류가 발생한 것이다.
+   리액트로 프로젝트를 진행할 당시에는 파일 확장명(.js)을 생략해도 문제없이 실행되었지만, vanilla javascript로 프로젝트를 진행할 경우 반드시 신경 써서 빼먹지 않도록 해야 한다. https://velog.io/@gabdol/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-netERRABORTED-404-Not-Found-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95
+
+4. initSketch()로 옮긴 코드에서 JSON.parse 안되는 이슈 - set할 때 먼저 localStorage.setItem('json', JSON.stringify({a: 1, b: 2})) 이런 식으로 변환해야.
+   https://velog.io/@hojin11choi/TIL-JavaScript-JSON-localStorage 하는데 기존 데이터 때문에 문제 생긴 것. 개발자 모드 application에서 localStorage 삭제 후 다시 해보자.
+
+5. sticker.html:51 Uncaught ReferenceError: drag is not defined
+   at HTMLDivElement.ondragstart
+
+   sticker.js:82 Uncaught TypeError: Cannot read properties of null (reading 'style')
+   at HTMLDocument.<anonymous>
+
+   아 환장하겠네! drag 포함된 부분 거추장스러워서 정돈했다가 안먹히는데 어디가 원인인지 찾아보려면 괴롭다
+
+   ```
+   모듈을 사용할 때 (<script type="module">) 전역 스코프가 다르게 동작하기 때문에,
+   HTML 인라인 이벤트 핸들러에서 모듈 내부 함수를 직접 호출할 수 없습니다.
+   ```
 
 ## ⚡ 바로 할 일!
 

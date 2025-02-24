@@ -1,11 +1,45 @@
+import { stickerpack, wherearestickers } from "./stickerpack.js";
+
 let stickers = [
-  { id: 0, text: "여기에 입력", left: "237px", top: "892.5px" }, //좌표, 이미지 경로 또는 이미지 일련번호 같은 값이 들어가야 됨
-  { id: 1, text: "여기에 입력", left: "237px", top: "892.5px" },
-  { id: 2, text: "여기에 입력", left: "237px", top: "892.5px" },
+  {
+    id: 0,
+    text: "여기에 입력",
+    stickerpack: stickerpack[0],
+    left: "237px",
+    top: "892.5px",
+  }, //좌표, 이미지 경로 또는 이미지 일련번호 같은 값이 들어가야 됨
+  {
+    id: 1,
+    text: "여기에 입력",
+    stickerpack: stickerpack[1],
+    left: "237px",
+    top: "892.5px",
+  },
+  {
+    id: 2,
+    text: "여기에 입력",
+    stickerpack: stickerpack[2],
+    left: "237px",
+    top: "892.5px",
+  },
 ]; //기존에 있던 스티커들 id
 
 let offsetX = 0;
 let offsetY = 0;
+
+function drag(event) {
+  offsetX = event.offsetX;
+  offsetY = event.offsetY;
+  event.dataTransfer.setData("text", event.target.id);
+}
+
+window.drag = drag;
+
+function dragSample(event) {
+  event.dataTransfer.setData("text", event.target.id);
+}
+
+window.dragSample = dragSample;
 
 const id0 = document.getElementById("0");
 // const xy = document.getElementById("xy");
@@ -34,14 +68,9 @@ saveBtn.addEventListener("click", (e) => {
 
 function initSketch() {
   //시작 시
-  if (localStorage.getItem("sketch")) {
-    let loaded = JSON.parse(localStorage.getItem("sketch"));
-    console.log(loaded);
-  }
+  const saved = localStorage.getItem("sketch");
+  console.log(JSON.parse(saved));
 }
-
-initSketch();
-stickerTextRefresh();
 
 function refreshSticker(target) {
   const container = target.closest(".sticker-container"); // 상위 컨테이너 찾기
@@ -55,16 +84,6 @@ function refreshSticker(target) {
   }
 }
 
-function drag(event) {
-  offsetX = event.offsetX;
-  offsetY = event.offsetY;
-  event.dataTransfer.setData("text", event.target.id);
-}
-
-function dragSample(event) {
-  event.dataTransfer.setData("text", event.target.id);
-}
-
 document.addEventListener("dragover", function (event) {
   event.preventDefault();
 });
@@ -74,7 +93,7 @@ document.addEventListener("drop", function (event) {
   console.log(event);
 
   var data = event.dataTransfer.getData("text"); // 드래그된 요소의 ID 가져오기
-  if (data !== "sample00" && data !== "sample01" && data !== "sample02") {
+  if (!stickerpack.includes(data)) {
     var draggedElement = document.getElementById(data); // ID를 사용하여 드래그된 요소 가져오기
 
     // 마우스 좌표 가져오기
@@ -88,7 +107,7 @@ document.addEventListener("drop", function (event) {
     // 드래그된 요소를 body에 추가하기
     document.body.appendChild(draggedElement);
   } else {
-    let code = findSample(data);
+    const index = stickerpack.indexOf(data);
     let sticker = {};
     sticker.id = stickers.length;
     sticker.text = "여기에 입력";
@@ -103,7 +122,7 @@ document.addEventListener("drop", function (event) {
           <div class="sticker-memo" draggable="false" contenteditable="true">
             여기에 입력
           </div>
-          <img class="sticker-img" src="svg/sticker${code}.svg" draggable="false" />
+          <img class="sticker-img" src="${wherearestickers[index]}" draggable="false" />
         </div>
       </div>`;
 
@@ -123,8 +142,5 @@ document.addEventListener("drop", function (event) {
   }
 });
 
-function findSample(data) {
-  if (data === "sample00") return "00";
-  else if (data === "sample01") return "01";
-  else if (data === "sample02") return "02";
-}
+initSketch();
+stickerTextRefresh();
