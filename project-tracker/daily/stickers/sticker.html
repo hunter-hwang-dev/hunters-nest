@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="sticker.css" rel="stylesheet" />
+  </head>
+  <body class="sketch">
+    <button id="save" class="btn">이 스케치 저장하기</button>
+    <button id="load" class="btn">더미 데이터 불러오기</button>
+    <div id="bin" class="btn" style="background-color: rgb(46, 6, 6)">
+      여기로 드래그 앤 드롭해 버려 주세요!
+    </div>
+
+    <div id="canvas"></div>
+
+    <div id="hover" class="hover">
+      <img
+        id="stickerpack-blue-00"
+        class="sticker-btn"
+        src="svg/sticker00.svg"
+        draggable="false"
+      />
+      <img
+        id="stickerpack-blue-01"
+        class="sticker-btn"
+        src="svg/sticker01.svg"
+        draggable="false"
+      />
+      <img
+        id="stickerpack-blue-02"
+        class="sticker-btn"
+        src="svg/sticker02.svg"
+        draggable="false"
+      />
+    </div>
+    <script type="module" src="sticker.js"></script>
+  </body>
+</html>

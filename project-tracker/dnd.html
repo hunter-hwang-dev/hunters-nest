@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <style>
+      .box {
+        position: absolute;
+        background-image: url("daily/stickers/sticker00.svg");
+        background-size: auto; /* 원본 크기 그대로 유지 */
+        background-repeat: no-repeat; /* 이미지가 반복되지 않도록 */
+        background-position: center; /* 중앙에 배치 */
+        width: 200px; /* 원하는 너비 설정 */
+      }
+    </style>
+    <div id="box" class="box" draggable="true" ondragstart="drag(event)">
+      <p contenteditable="true"></p>
+    </div>
+    <div id="box2" class="box" draggable="true" ondragstart="drag(event)">
+      <p contenteditable="true"></p>
+    </div>
+    <div id="box3" class="box" draggable="true" ondragstart="drag(event)">
+      <p contenteditable="true"></p>
+    </div>
+    <script>
+      // https://develop247.tistory.com/420
+
+      function drag(ev) {
+        // 드래그하는 요소의 ID를 데이터로 설정
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      document.addEventListener("dragover", function (event) {
+        event.preventDefault();
+      });
+
+      document.addEventListener("drop", function (event) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text"); // 드래그된 요소의 ID 가져오기
+        var draggedElement = document.getElementById(data); // ID를 사용하여 드래그된 요소 가져오기
+
+        // 마우스 좌표 가져오기
+        var mouseX = event.clientX;
+        var mouseY = event.clientY;
+
+        // 드래그된 요소를 마우스 좌표에 위치시키기
+        draggedElement.style.left =
+          mouseX - draggedElement.offsetWidth / 2 + "px";
+        draggedElement.style.top =
+          mouseY - draggedElement.offsetHeight / 2 + "px";
+
+        // 드래그된 요소를 body에 추가하기
+        document.body.appendChild(draggedElement);
+      });
+    </script>
+  </body>
+</html>

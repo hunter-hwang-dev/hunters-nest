@@ -128,9 +128,150 @@ OS가 파일 디렉토리 관리하는 방법?
 1. 완전 notion-like라면 linked list로도 충분함 (풀로 안보여주잖어)
 2. 달력 만들고 싶었는디. 어떤 느낌이냐 하면은 github contribution 표 같은거.
 
+드래그했을 때 스티커가 움직이고, 드롭 시에 해당 위치에 붙는 기능 - 정말 생 vanilla js는 너무 심했다. 좌표 계산 덜덜 떨리고 최적화도 어려움.
+draggable library 사용해 볼까? drop 요소에 들어가고 안 들어가고가 포인트네.
+캔버스, 그리기 이런 쪽을 찾아보아야 할 것 같은데, 막상 살펴보니 원하는 방향이 아님.
+ㄴ> 결국 생 vanilla로 구현함. 사실 그냥 디버깅하기 조금 눈아팠을 뿐이지 그냥 뺄 숫자를 제대로 찾으면 되는 거였다 ㅎㅎ
+
+추가된 스티커를 드래그 앤 드롭으로 움직이고, 안에 센터 정렬된 div 텍스트 박스가 있는 형태를 테스트 중.
+
+고민: sticker 생성 시마다 정중앙 좌표도 constant로 보낼 수 있기는 한데, 글자 입력 시에도 중심이 고정이 되게 하는 것이 관건.
+고민 2: ppt처럼 도형 내 텍스트박스의 상대 위치를 섬세 조정할 수 있는 기능? (중요도 하)
+고민 3: drag 떼어냈을 때 내가 drag한 도형이 draggable이랑 닿으면 그거 적어둬서, 나중에 쭉 늘려도 node 이어지는 형태로 보여줄 수 있지 않을까?
+고민 4: 기록한 메모 및 도형 이름, 위치 등 localStorage에 저장(우선 서버 없이도 새로고침 시에 갱신 안되는 것부터) > 서버에 저장() (중요도 상!)
+
+- 어떻게 현재 스티커 위치 및 내용을 '스냅샷'으로 찍을지 고민:
+  Object 하나로 묶을까? {
+  recordedAt: "2025-02-19T10:34:50Z",
+  stickers: [
+  {memo: "여기에 입력", containerId: "0", imgSrc: "sticker00.svg", styleLeftPx: 123, styleTopPx: 56},
+  {memo: "여기에 입력", containerId: "1", imgSrc: "sticker01.svg", styleLeftPx: 123, styleTopPx: 56},
+  {memo: "여기에 입력", containerId: "2", imgSrc: "sticker02.svg", styleLeftPx: 123, styleTopPx: 56}
+  ]
+  }
+
+- 서버비 줄이는 택배묶음 종류
+  a. Batch Update: 일정 시간이나 특정 조건이 충족될 때까지 모았다가 한 번에 서버로 전송하는 방식. 서버 부하와 네트워크 비용을 줄일 때 유용
+  b. Debouncing: 사용자가 멈출 때까지 기다렸다가 서버에 업데이트 전송
+  c. Throttling: 일정 시간 간격으로만 서버에 전송(예: 2초에 한 번).
+
+  다 언제 끊을지 애매하고, js에서 항시 내내 시간 간격 다루기도 마땅찮고.
+
+- 그러면 가장 구현하기 쉬운 MVP는, 저장 버튼 눌렀을 때에만 스냅샷을 서버에 한 번 보내는 방식이겠군!
+
+고민 5: 서버를 개인 정보 저장에 쓰려면 비밀번호 암호화가 필요하지 않아?
+
+고민 6: ppt처럼 svg 리사이징, 변형? (중요도 하)
+
+고민 7: 더 커지면 snapshots들을 500개 정도 localStorage에 저장해놓고 뒤로가기, 되돌리기 기능도구현 가능하겠네!
+뒤로가기/되돌리기용 array? 도 빠르겠지만 현재 위치에서 앞으로 뒤로밖에 안 가니까 더 구체적인 자료구조 고를 수 있을것 같은데...
+
+- Stack이냐 Queue냐
+  아직도 둘이 헷갈림.
+  Queue: 할 일 대기줄. 롤 큐 잡혔다 할 때 Queue. 내가 서브웨이 알바생이고 손님 5명 이라고 생각하면 손님 주문이 각자 element로 Queue의 맨 뒤에 들어간다. 현실에서 줄 서는 일이 다 Queue임
+
+  Stack: 만약 놀이공원 줄서기가 Stack이라면 일찍 온 사람이 개손해임. 현실에서 Stack 볼 수 있는 경우:
+  막내 인턴이 커피 사러 가는데, 막내 인턴 빠지면 둘째 막내 사원이 커피 사오는 거임
+
+  빨간 줄 그이는 거 신경쓰이는데 브라우저에서 못 끄는 건가
+
+  #### `2025-02-20 목요일` sticker.html 다듬기 (아 하기 싫어)
+
+  troubleshooting으로 넘어갈 내용 - 웹 개발 파면서 흥미로운 부분이다.
+  document.querySelectorAll(".sticker-memo").forEach(...) 코드는 초기 렌더링 시점에만 .sticker-memo 요소들을 선택!
+  그래서 나중에 이벤트 발동되면 추가되는 스티커들한테 적용 안되는 것.
+
+  이런 상황 해결 위해 이벤트 위임 (Event Delegation) 쓴다.
+  부모 요소에 이벤트 리스너를 붙이고, 이벤트 발생 시 타겟을 확인하는 방식임.
+
+  #### `2025-02-24 월요일` 주말 쉬고 돌아옴!
+
+  할 troubleshooting
+
+1. 원래 창 갱신 시에 바로 로딩해야 하지만 코드가 어딨는지 찾기 어려울것 같아서 임시 버튼 만듬
+   근데 지금 stickers = [
+   { id: 0, text: "여기에 입력" }, //좌표, 이미지 경로 또는 이미지 일련번호 같은 값이 들어가야 됨
+   { id: 1, text: "여기에 입력" },
+   { id: 2, text: "여기에 입력" },
+   ] 이런 형태인데
+
+localStorage.setItem("sketch", stickers)
+let loaded = localStorage.getItem("sketch");
+loaded.forEach((element) => {
+console.log(element);
+});
+
+< 이게 타입 에러가 걸려서 황당;
+
+```
+Uncaught TypeError: Cannot read properties of null (reading 'forEach')
+at HTMLButtonElement.<anonymous> (sticker.js:26:10)
+```
+
+아 localStorage는 문자열만 저장 가능 > 저장 시에는 JSON.stringify로 변환
+불러올 때도 JSON.parse로 다시 변환해야!!
+
+2. html 요소 좌표 가져오기
+   id0.style.left와 id0.style.top은 인라인 스타일만 가져와서 내장된 값은 못찾음
+   브라우저가 계산한 모든 스타일 값을 가져오려면 window.getComputedStyle() 쓰라며.
+
+   초기 상태 237px 892.5px 이니까 우선 매뉴얼리 적어 하드코딩 해.
+
+3. 어휴 정신 없어 (샘플)스티커팩을 한 파일에 모다두고 모듈로 불러오자. 근데 import 404 오류 뜸 - 파일명에 .js가 없어서 오류가 발생한 것이다.
+   리액트로 프로젝트를 진행할 당시에는 파일 확장명(.js)을 생략해도 문제없이 실행되었지만, vanilla javascript로 프로젝트를 진행할 경우 반드시 신경 써서 빼먹지 않도록 해야 한다. https://velog.io/@gabdol/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-netERRABORTED-404-Not-Found-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95
+
+4. initSketch()로 옮긴 코드에서 JSON.parse 안되는 이슈 - set할 때 먼저 localStorage.setItem('json', JSON.stringify({a: 1, b: 2})) 이런 식으로 변환해야.
+   https://velog.io/@hojin11choi/TIL-JavaScript-JSON-localStorage 하는데 기존 데이터 때문에 문제 생긴 것. 개발자 모드 application에서 localStorage 삭제 후 다시 해보자.
+
+5. sticker.html:51 Uncaught ReferenceError: drag is not defined
+   at HTMLDivElement.ondragstart
+
+   sticker.js:82 Uncaught TypeError: Cannot read properties of null (reading 'style')
+   at HTMLDocument.<anonymous>
+
+   아 환장하겠네! drag 포함된 부분 거추장스러워서 정돈했다가 안먹히는데 어디가 원인인지 찾아보려면 괴롭다
+
+   ```
+   모듈을 사용할 때 (<script type="module">) 전역 스코프가 다르게 동작하기 때문에,
+   HTML 인라인 이벤트 핸들러에서 모듈 내부 함수를 직접 호출할 수 없습니다.
+   ```
+
+6. 텍스트 입력 후 id=save 버튼 누르면 localStorage 갱신되는데 좌표는 갱신 안되는 이유?
+
+7. let dragged = event.dataTransfer.getData("text/plain"); < 이거 타입이잖아
+   근데 "text/html" HTML 코드 전송 도 가능하고 "application/json" JSON 형식 전송 (커스텀 타입 예시) 도 가능하면
+   아예 스티커 째로 보내면 안됨?
+
+8. 내용이 벌키해지면 읽기 어려워 insertAdjacentHTML 사용해서 코드 수정해 볼까;
+
+#### `2025-02-27 목요일` 힘든 일 있으면 워킹데이 3일 나가리 된다는 게 사실인 듯.
+
+여튼 컨디션 관리 잘 하고. 지금 생짜 마크다운에 필기하는 거 불편하긴 한데, 못 견딜 정도는 아님.
+자꾸 프로젝트 문어발 식으로 확장하다가 하나도 못 끝내는 꼴이 싫어서 (여러 사람이서 일하는 거면 효율을 위해 다음으로 넘기고 할 수 있겠으나, 1인 개발이므로)
+무조건 3월 15일까지 릴리즈한다는 목표로.
+
+코드가 커질수록 불편해지는데, typescript 이전이 탐난다. 어휴 골치야! 특히나 sticker 저장 데이터 다룰 때 json 풀었다 닫았다 하잖아. 위험성이 너무 커.
+아휴 근데 우선 배운다는 입장으로 javascript로 구현 끝내고 나서 마이그레이션하자고.
+
+![alt text](image-1.png)
+
+sticker.js 너무 스파게티 된 기분이라 새로 만듬
+
+![alt text](image.png)
+
+어휴 또 시작이야 트러블슈팅 할 거. Failed to load resource: the server responded with a status of 404 (Not Found)
+
+`import { dummySketch } from "./dummy.js"; //vanilla js에서 확장자명 주의!` 이거 자꾸 틀리네.
+
 ## ⚡ 바로 할 일!
 
-<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">2025-02-15 11:05:14 아휴 오늘은 이제 좀 쉬자.</span> (예상 소요: )
+<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">sticker.html에서 더블 클릭 시 text 상자 추가하는 기능?</span> 글쎄
+
+<span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">"스냅샷" 오브젝트에 들어갈 값 콘솔로 일일이 찍어서 json으로 저장 -> 불러오기 (최종 구현은 저장 기능이지만)</span>
+
+깔끔히 누끼따져블 사각형이지만 눈대중 간격은 정확하지 않은거 신경쓰이는데, 이건 정말 hover 따로 떼어내서 안에 들어간 div 페르소나 노가다 해야 할 수밖에 없지 않아? (픽셀 단위로 조절해 본다는 뜻)
+
+아 그리고 지금 드래그 호버보드(이 둥둥떠 ui 부르는 말 정확히 있을텐데 여튼) 위에다 올리면 위에다 그려지는데, 취향preference이지만 호버 탭을 누르면 호버가 무조건 위로 올라와야 된다 (그리고 호버에서 핸들 버튼 잡고 드래그하면 돌아다녀야됨)
 
 ## 🛣️ 그 다음 목표?
 
@@ -140,6 +281,6 @@ OS가 파일 디렉토리 관리하는 방법?
 
 - 유저 읽기 전용: 쿠키 받아와서, 버전 업데이트 있음 - 서버에서 정보 불러와 갱신
 - 버전 업데이트 없음, 쿠키 없음 - 갱신
-- 버전 업데이트 없음, 쿠키 있음 - 업데이트하지 않음으로 고물가 시대에 몇 바이트 단수 절약하기 (의미가 있을지?)
+- 버전 업데이트 없음, 쿠키 있음 - 업데이트하지 않음으로 고물가 시대에 몇 바이트 단수 절약하기 (의미가 있을지?) < 이거 2025-02-19 10:19 ~ 10:51:40 까지 생각함. 위에 적어놨지? 솔직히 마크다운 생짜로 보는거 너무 눈 아파가지고 (아무리 preview로 왔다갔다 하더래도, 그리고 이쁘게 태그 달았는데 github에서 안보여서 배신감 느낌) 이제부터는 막 적고 (사실 포맷을 이쁘게 다듬은거 git init 하기전에 작성한 내용 한 톨도 빼놓지않고 내가 한 눈에 확인하려고 적은거엿삼 실제 개발때 저렇게 다이어리 적으면서 일 같이 못해. 막 메모장 적어두고 퇴근 전에 3줄요약 > 매일 해서 15줄 + 그 주에 제일 중요했던 기능구현 눈으로 보여주는 스크린샷이나 gif 같은거... 금요일에 보고서 형식으로 정리 뭐 이런정도면 꼼꼼한거지)
 
 <span class="highlight green" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(41, 255, 105, 0.3)"> 종료 목표일</span> 한 달이면 충분하겠지? `2025-03-14`
