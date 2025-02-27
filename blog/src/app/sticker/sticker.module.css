@@ -1,0 +1,63 @@
+.sticker-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  cursor: move;
+}
+.sticker {
+  position: relative;
+  filter: drop-shadow(rgba(61, 58, 53, 0.753) 0rem 0.25rem 0.1rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sticker-memo {
+  width: max-content;
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+  color: white;
+  font-family: "Pretendard";
+}
+.sticker-img {
+  position: absolute;
+}
+.sketch {
+  height: 480px; /*적당히 임의 값 지정*/
+  background-size: 24px 24px;
+  background-image: linear-gradient(
+      to right,
+      rgb(60, 105, 225) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgb(60, 105, 225) 1px, transparent 1px);
+}
+.hover {
+  /* 화면 하단 중간에 파란색 ~ 흰 ~ 회색, 상하좌우 전부 100% 라운드 처리 된 도형에서 끄집어낼 수 있는 스티커 템플릿들.
+        스크롤 돌리든 화면 어디로 가든 절대적으로 화면 아래에서 대략 몇십 px 떨어져 있고 가운데 정렬되어 있음 */
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 50px;
+  width: 50%;
+  height: 100px;
+  background-color: rgb(203, 212, 238);
+  border-radius: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sticker-btn {
+  width: 20%;
+  padding: 20px;
+  filter: drop-shadow(rgba(61, 58, 53, 0.753) 0rem 0.25rem 0.1rem);
+}
+.btn {
+  all: unset;
+  background-color: rgb(60, 105, 225);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
