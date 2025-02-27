@@ -23,3 +23,12 @@ loadBtn.addEventListener("click", (e) => {
   const savedData = JSON.parse(localStorage.getItem("sketch"));
   console.log(savedData);
 });
+
+document.body.addEventListener("focusout", (e) => {
+  if (e.target.classList.contains("sticker-memo")) {
+    const id = e.target.parentElement.parentElement.id;
+    const text = e.target.innerText;
+    canvas[id].text = text;
+    console.log(canvas);
+  }
+});
