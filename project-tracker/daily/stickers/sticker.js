@@ -6,7 +6,7 @@ const canvas = document.getElementById("canvas");
 const saveBtn = document.getElementById("save");
 const loadBtn = document.getElementById("load");
 
-initSketch(dummySketch);
+initSketch();
 syncDraftText();
 syncDraftPosition();
 
@@ -73,3 +73,5 @@ function syncDraftPosition() {
     }
   });
 }
+
+function syncNewSticker() {}
