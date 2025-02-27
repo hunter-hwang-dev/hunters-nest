@@ -24,3 +24,5 @@
 - Yiyi Wang의 Markdown Preview Enhanced
 - krivoox의 Draw Folder Structure
 - Jakub Synowiec의 Insert Date String
+
+https://github.com/markedjs/marked
