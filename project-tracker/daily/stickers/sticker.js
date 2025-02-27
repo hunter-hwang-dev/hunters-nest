@@ -1,20 +1,25 @@
 import { dummySketch } from "./dummy.js"; //vanilla js에서 확장자명 주의!
 
+const saveBtn = document.getElementById("save");
+
 initSketch(dummySketch);
 
 function initSketch(savedData) {
   savedData.forEach((sticker) => {
-    console.log(sticker);
-    appendSticker(sticker);
+    appendStickerOnBody(sticker);
   });
 }
 
-function appendSticker(sticker) {
+saveBtn.addEventListener("click", (e) => {
+  localStorage.setItem("sketch", JSON.stringify(dummySketch));
+});
+
+function appendStickerOnBody(sticker) {
   const stickerElement = document.createElement("div");
   stickerElement.id = sticker.id;
   stickerElement.className = "sticker-container";
   stickerElement.draggable = true;
-  stickerElement.ondragstart = drag;
+  // stickerElement.ondragstart = drag;
 
   stickerElement.style.left = sticker.left;
   stickerElement.style.top = sticker.top;

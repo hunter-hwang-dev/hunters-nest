@@ -10,23 +10,23 @@ export const svg = [
   "svg/sticker02.svg",
 ];
 
-export function stickerContainerHTML(sticker) {
-  return `<div
-  id="${sticker.id}"
-  class="sticker-container"
-  draggable="true"
-  ondragstart="drag(event)"
->
-  <div class="sticker" draggable="false">
-    <div class="sticker-memo" draggable="false" contenteditable="true">
-      ${sticker.text}
-    </div>
-    <img
-      class="sticker-image"
-      style="position: absolute"
-      src="${sticker.src}"
-      draggable="false"
-    />
-  </div>
-</div>;`;
-}
+// export function stickerContainerHTML(sticker) {
+//   return `<div
+//   id="${sticker.id}"
+//   class="sticker-container"
+//   draggable="true"
+//   ondragstart="drag(event)"
+// >
+//   <div class="sticker" draggable="false">
+//     <div class="sticker-memo" draggable="false" contenteditable="true">
+//       ${sticker.text}
+//     </div>
+//     <img
+//       class="sticker-image"
+//       style="position: absolute"
+//       src="${sticker.src}"
+//       draggable="false"
+//     />
+//   </div>
+// </div>;`;
+// }
