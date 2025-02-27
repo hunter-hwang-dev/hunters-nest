@@ -11,7 +11,6 @@ export const svg = [
 ];
 
 export function generateStickerElement(sticker) {
-  const canvas = document.getElementById("canvas");
   const stickerElement = document.createElement("div");
   stickerElement.id = sticker.id;
   stickerElement.className = "sticker-container";

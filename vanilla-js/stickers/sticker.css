@@ -23,7 +23,6 @@
   position: absolute;
 }
 .sketch {
-  height: 480px;
   background-size: 24px 24px;
   background-image: linear-gradient(
       to right,
