@@ -63,8 +63,10 @@ function syncDraftPosition() {
 
   document.addEventListener("drop", (e) => {
     e.preventDefault();
+
     console.log("drop:", e.target);
     if (e.target.id === "bin") {
+      //삭제 버튼
       draggedElement.remove();
     } else {
       const existingStickerElement = document.getElementById(draggedElementId);

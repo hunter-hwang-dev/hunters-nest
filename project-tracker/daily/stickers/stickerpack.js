@@ -16,7 +16,6 @@ export function generateStickerElement(sticker) {
   stickerElement.id = sticker.id;
   stickerElement.className = "sticker-container";
   stickerElement.draggable = true;
-  // stickerElement.ondragstart = drag;
 
   stickerElement.style.left = sticker.left;
   stickerElement.style.top = sticker.top;
