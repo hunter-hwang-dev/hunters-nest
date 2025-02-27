@@ -82,15 +82,17 @@ function syncNewSticker() {
 
   stickerBtns.forEach((stickerBtn) => {
     stickerBtn.addEventListener("click", (e) => {
-      let id = stickerpack.findIndex((name) => name == stickerBtn.id);
-      console.log(id);
+      let packId = stickerpack.findIndex((name) => name == stickerBtn.id);
+      let left = Math.random() * window.innerWidth;
+      let top = Math.random() * window.innerHeight;
+      console.log(packId, left, top);
 
       let sticker = {
         id: draft.length,
-        text: "",
-        left: "500px",
-        top: "500px",
-        src: svg[id],
+        text: "여기에 입력",
+        left: `${left}px`,
+        top: `${top}px`,
+        src: svg[packId],
       };
 
       let stickerElement = generateStickerElement(sticker);
