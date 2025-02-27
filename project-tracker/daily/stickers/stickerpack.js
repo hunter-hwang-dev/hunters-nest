@@ -10,7 +10,7 @@ export const svg = [
   "svg/sticker02.svg",
 ];
 
-export function stickerContainerHTML(id, src) {
+export function stickerContainerHTML(id, src = svg[0], text = "여기에 입력") {
   return `<div
   id="${id}"
   class="sticker-container"
@@ -19,7 +19,7 @@ export function stickerContainerHTML(id, src) {
 >
   <div class="sticker" draggable="false">
     <div class="sticker-memo" draggable="false" contenteditable="true">
-      입력한 값이 들어가면 좋음
+      ${text}
     </div>
     <img
       class="sticker-image"

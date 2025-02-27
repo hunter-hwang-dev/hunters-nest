@@ -250,6 +250,19 @@ at HTMLButtonElement.<anonymous> (sticker.js:26:10)
 자꾸 프로젝트 문어발 식으로 확장하다가 하나도 못 끝내는 꼴이 싫어서 (여러 사람이서 일하는 거면 효율을 위해 다음으로 넘기고 할 수 있겠으나, 1인 개발이므로)
 무조건 3월 15일까지 릴리즈한다는 목표로.
 
+코드가 커질수록 불편해지는데, typescript 이전이 탐난다. 어휴 골치야! 특히나 sticker 저장 데이터 다룰 때 json 풀었다 닫았다 하잖아. 위험성이 너무 커.
+아휴 근데 우선 배운다는 입장으로 javascript로 구현 끝내고 나서 마이그레이션하자고.
+
+![alt text](image-1.png)
+
+sticker.js 너무 스파게티 된 기분이라 새로 만듬
+
+![alt text](image.png)
+
+어휴 또 시작이야 트러블슈팅 할 거. Failed to load resource: the server responded with a status of 404 (Not Found)
+
+`import { dummySketch } from "./dummy.js"; //vanilla js에서 확장자명 주의!` 이거 자꾸 틀리네.
+
 ## ⚡ 바로 할 일!
 
 <span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">sticker.html에서 더블 클릭 시 text 상자 추가하는 기능?</span> 글쎄
