@@ -10,7 +10,8 @@
 //   "svg/sticker02.svg",
 // ];
 
-export function appendStickerOnBody(sticker) {
+export function generateStickerElement(sticker) {
+  const canvas = document.getElementById("canvas");
   const stickerElement = document.createElement("div");
   stickerElement.id = sticker.id;
   stickerElement.className = "sticker-container";
@@ -34,5 +35,5 @@ export function appendStickerOnBody(sticker) {
     </div>
   `;
 
-  document.body.appendChild(stickerElement);
+  return stickerElement;
 }

@@ -1,21 +1,30 @@
 import { dummySketch } from "./dummy.js"; //vanilla js에서 확장자명 주의!
-import { appendStickerOnBody } from "./stickerpack.js";
+import { generateStickerElement } from "./stickerpack.js";
 
 let draft = [];
+const canvas = document.getElementById("canvas");
 
 initSketch(dummySketch);
 syncDraftText();
 syncDraftPosition();
 
 function initSketch() {
-  const saveBtn = document.getElementById("save");
   const savedData = JSON.parse(localStorage.getItem("sketch"));
   savedData.forEach((sticker) => {
-    appendStickerOnBody(sticker);
+    let stickerElement = generateStickerElement(sticker);
+    canvas.appendChild(stickerElement);
     draft.push(sticker);
   });
+
+  const saveBtn = document.getElementById("save");
+  const loadBtn = document.getElementById("load");
+
   saveBtn.addEventListener("click", (e) => {
     localStorage.setItem("sketch", JSON.stringify(draft));
+    console.log(draft);
+  });
+  loadBtn.addEventListener("click", (e) => {
+    draft = dummySketch;
     console.log(draft);
   });
 }
@@ -32,7 +41,14 @@ function syncDraftText() {
 }
 
 function syncDraftPosition() {
+  let draggedElementId;
+  let offsetX;
+  let offsetY;
+
   document.addEventListener("dragstart", (e) => {
+    draggedElementId = e.target.id;
+    offsetX = e.offsetX;
+    offsetY = e.offsetY;
     console.log(e.target.id);
   });
 
@@ -41,9 +57,15 @@ function syncDraftPosition() {
   });
   document.addEventListener("drop", (e) => {
     e.preventDefault();
-    let mouseX = e.clientX;
-    let mouseY = e.clientY;
 
-    console.log("dropped at:", mouseX, mouseY);
+    draft[draggedElementId].left = `${e.clientX - offsetX}px`;
+    draft[draggedElementId].top = `${e.clientY - offsetY}px`;
+    console.log(draft[draggedElementId]);
+    canvas.innerHTML = "";
+    draft.forEach((sticker) => {
+      let stickerElement = generateStickerElement(sticker);
+      canvas.appendChild(stickerElement);
+      draft.push(sticker);
+    });
   });
 }
