@@ -50,9 +50,29 @@
       </div>
     </div> -->
 
-
-
-
+ <!-- <div id="hover" class="hover">
+      <img
+        id="stickerpack-blue-00"
+        class="sticker-sample"
+        src="svg/sticker00.svg"
+        draggable="true"
+        ondragstart="stickerpackDrag(event)"
+      />
+      <img
+        id="stickerpack-blue-01"
+        class="sticker-sample"
+        src="svg/sticker01.svg"
+        draggable="true"
+        ondragstart="stickerpackDrag(event)"
+      />
+      <img
+        id="stickerpack-blue-02"
+        class="sticker-sample"
+        src="svg/sticker02.svg"
+        draggable="true"
+        ondragstart="stickerpackDrag(event)"
+      />
+    </div> -->
 
     let stickers = [
 
