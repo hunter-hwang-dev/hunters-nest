@@ -61,11 +61,11 @@ function syncDraftPosition() {
     draft[draggedElementId].left = `${e.clientX - offsetX}px`;
     draft[draggedElementId].top = `${e.clientY - offsetY}px`;
     console.log(draft[draggedElementId]);
-    canvas.innerHTML = "";
+
+    if (document.getElementById()) canvas.innerHTML = "";
     draft.forEach((sticker) => {
       let stickerElement = generateStickerElement(sticker);
       canvas.appendChild(stickerElement);
-      draft.push(sticker);
     });
   });
 }
