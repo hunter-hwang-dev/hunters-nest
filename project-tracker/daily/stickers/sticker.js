@@ -2,7 +2,7 @@ import { stickerpack, svg, stickerContainerHTML } from "./stickerpack.js";
 
 let stickers = [];
 
-// initSketch();
+initSketch();
 // refreshStickerText();
 
 let offsetX = 0;
@@ -44,11 +44,27 @@ window.stickerpackDrag = stickerpackDrag;
 //   );
 // }
 
-// function initSketch() {
-//   //시작 시
-//   const saved = localStorage.getItem("sketch");
-//   console.log(JSON.parse(saved));
-// }
+function initSketch() {
+  //시작 시
+  const savedStickers = JSON.parse(localStorage.getItem("sketch"));
+
+  savedStickers.forEach((savedSticker) => {
+    console.log(savedSticker);
+
+    var draggedElementHTML = stickerContainerHTML(savedSticker.id, svg[0]);
+
+    // 문자열을 DOM 요소로 변환
+    var tempDiv = document.createElement("div");
+    tempDiv.innerHTML = draggedElementHTML;
+    var stickerElement = tempDiv.firstElementChild;
+
+    // 마우스 위치에 맞게 요소 위치 설정
+    stickerElement.style.left = savedSticker.left;
+    stickerElement.style.top = savedSticker.top;
+
+    document.body.appendChild(stickerElement);
+  });
+}
 
 function stickerpackDrag(event) {
   event.dataTransfer.setData("text/plain", event.target.id);

@@ -244,6 +244,12 @@ at HTMLButtonElement.<anonymous> (sticker.js:26:10)
 
 8. 내용이 벌키해지면 읽기 어려워 insertAdjacentHTML 사용해서 코드 수정해 볼까;
 
+#### `2025-02-27 목요일` 힘든 일 있으면 워킹데이 3일 나가리 된다는 게 사실인 듯.
+
+여튼 컨디션 관리 잘 하고. 지금 생짜 마크다운에 필기하는 거 불편하긴 한데, 못 견딜 정도는 아님.
+자꾸 프로젝트 문어발 식으로 확장하다가 하나도 못 끝내는 꼴이 싫어서 (여러 사람이서 일하는 거면 효율을 위해 다음으로 넘기고 할 수 있겠으나, 1인 개발이므로)
+무조건 3월 15일까지 릴리즈한다는 목표로.
+
 ## ⚡ 바로 할 일!
 
 <span class="highlight grey" style="border-radius: 8px; padding: 2px 8px 4px 8px; background-color: rgba(127, 127, 127, 0.3)">sticker.html에서 더블 클릭 시 text 상자 추가하는 기능?</span> 글쎄
