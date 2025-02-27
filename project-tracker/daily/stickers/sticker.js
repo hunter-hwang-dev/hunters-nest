@@ -1,5 +1,5 @@
 import { dummySketch } from "./dummy.js"; //vanilla js에서 확장자명 주의!
-import { stickerpack, generateStickerElement } from "./stickerpack.js";
+import { stickerpack, svg, generateStickerElement } from "./stickerpack.js";
 
 let draft = [];
 const canvas = document.getElementById("canvas");
@@ -84,6 +84,18 @@ function syncNewSticker() {
     stickerBtn.addEventListener("click", (e) => {
       let id = stickerpack.findIndex((name) => name == stickerBtn.id);
       console.log(id);
+
+      let sticker = {
+        id: draft.length,
+        text: "",
+        left: "500px",
+        top: "500px",
+        src: svg[id],
+      };
+
+      let stickerElement = generateStickerElement(sticker);
+      canvas.appendChild(stickerElement);
+      draft.push(sticker);
     });
   });
 }
