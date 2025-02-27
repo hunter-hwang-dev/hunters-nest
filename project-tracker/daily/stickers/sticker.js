@@ -44,11 +44,13 @@ function syncDraftText() {
 }
 
 function syncDraftPosition() {
+  let draggedElement;
   let draggedElementId;
   let offsetX;
   let offsetY;
 
   document.addEventListener("dragstart", (e) => {
+    draggedElement = e.target;
     draggedElementId = e.target.id;
     offsetX = e.offsetX;
     offsetY = e.offsetY;
@@ -58,19 +60,24 @@ function syncDraftPosition() {
   document.addEventListener("dragover", (e) => {
     e.preventDefault();
   });
+
   document.addEventListener("drop", (e) => {
     e.preventDefault();
+    console.log("drop:", e.target);
+    if (e.target.id === "bin") {
+      draggedElement.remove();
+    } else {
+      const existingStickerElement = document.getElementById(draggedElementId);
+      if (existingStickerElement) {
+        draft[draggedElementId].left = `${e.clientX - offsetX}px`;
+        draft[draggedElementId].top = `${e.clientY - offsetY}px`;
+        console.log(draft[draggedElementId]);
 
-    const existingStickerElement = document.getElementById(draggedElementId);
-    if (existingStickerElement) {
-      draft[draggedElementId].left = `${e.clientX - offsetX}px`;
-      draft[draggedElementId].top = `${e.clientY - offsetY}px`;
-      console.log(draft[draggedElementId]);
-
-      const updatedStickerElement = generateStickerElement(
-        draft[draggedElementId]
-      );
-      existingStickerElement.replaceWith(updatedStickerElement);
+        const updatedStickerElement = generateStickerElement(
+          draft[draggedElementId]
+        );
+        existingStickerElement.replaceWith(updatedStickerElement);
+      }
     }
   });
 }
