@@ -10,21 +10,21 @@ export const svg = [
   "svg/sticker02.svg",
 ];
 
-export function stickerContainerHTML(id, src = svg[0], text = "여기에 입력") {
+export function stickerContainerHTML(sticker) {
   return `<div
-  id="${id}"
+  id="${sticker.id}"
   class="sticker-container"
   draggable="true"
   ondragstart="drag(event)"
 >
   <div class="sticker" draggable="false">
     <div class="sticker-memo" draggable="false" contenteditable="true">
-      ${text}
+      ${sticker.text}
     </div>
     <img
       class="sticker-image"
       style="position: absolute"
-      src="${src}"
+      src="${sticker.src}"
       draggable="false"
     />
   </div>

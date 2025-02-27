@@ -6,14 +6,17 @@ initSketch(dummySketch);
 function initSketch(savedData) {
   savedData.forEach((sticker) => {
     console.log(sticker);
-
-    var tempDiv = document.createElement("div");
-    tempDiv.innerHTML = stickerContainerHTML(sticker.id);
-    var stickerElement = tempDiv.firstElementChild;
-
-    stickerElement.style.left = sticker.left;
-    stickerElement.style.top = sticker.top;
-
-    document.body.appendChild(stickerElement);
+    appendSticker(sticker);
   });
+}
+
+function appendSticker(sticker) {
+  var tempDiv = document.createElement("div");
+  tempDiv.innerHTML = stickerContainerHTML(sticker);
+  var stickerElement = tempDiv.firstElementChild;
+
+  stickerElement.style.left = sticker.left;
+  stickerElement.style.top = sticker.top;
+
+  document.body.appendChild(stickerElement);
 }
