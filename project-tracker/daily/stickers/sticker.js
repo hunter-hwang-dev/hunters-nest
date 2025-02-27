@@ -1,5 +1,5 @@
 import { dummySketch } from "./dummy.js"; //vanilla js에서 확장자명 주의!
-import { generateStickerElement } from "./stickerpack.js";
+import { stickerpack, generateStickerElement } from "./stickerpack.js";
 
 let draft = [];
 const canvas = document.getElementById("canvas");
@@ -9,6 +9,7 @@ const loadBtn = document.getElementById("load");
 initSketch();
 syncDraftText();
 syncDraftPosition();
+syncNewSticker();
 
 function initSketch() {
   const savedData = JSON.parse(localStorage.getItem("sketch"));
@@ -74,4 +75,15 @@ function syncDraftPosition() {
   });
 }
 
-function syncNewSticker() {}
+function syncNewSticker() {
+  const stickerBtns = Array.from(
+    document.getElementsByClassName("sticker-btn")
+  );
+
+  stickerBtns.forEach((stickerBtn) => {
+    stickerBtn.addEventListener("click", (e) => {
+      let id = stickerpack.findIndex((name) => name == stickerBtn.id);
+      console.log(id);
+    });
+  });
+}
