@@ -2,7 +2,6 @@ import { dummySketch } from "./dummy.js"; //vanilla js에서 확장자명 주의
 import { appendStickerOnBody } from "./stickerpack.js";
 
 const saveBtn = document.getElementById("save");
-const loadBtn = document.getElementById("load");
 let draft = [];
 
 initSketch(dummySketch);
@@ -17,11 +16,6 @@ function initSketch() {
 
 saveBtn.addEventListener("click", (e) => {
   localStorage.setItem("sketch", JSON.stringify(draft));
-});
-
-loadBtn.addEventListener("click", (e) => {
-  const savedData = JSON.parse(localStorage.getItem("sketch"));
-  console.log(savedData);
 });
 
 document.body.addEventListener("focusout", (e) => {
