@@ -3,6 +3,8 @@ import { generateStickerElement } from "./stickerpack.js";
 
 let draft = [];
 const canvas = document.getElementById("canvas");
+const saveBtn = document.getElementById("save");
+const loadBtn = document.getElementById("load");
 
 initSketch(dummySketch);
 syncDraftText();
@@ -16,16 +18,16 @@ function initSketch() {
     draft.push(sticker);
   });
 
-  const saveBtn = document.getElementById("save");
-  const loadBtn = document.getElementById("load");
-
   saveBtn.addEventListener("click", (e) => {
     localStorage.setItem("sketch", JSON.stringify(draft));
-    console.log(draft);
   });
   loadBtn.addEventListener("click", (e) => {
+    canvas.innerHTML = "";
     draft = dummySketch;
-    console.log(draft);
+    draft.forEach((sticker) => {
+      let stickerElement = generateStickerElement(sticker);
+      canvas.appendChild(stickerElement);
+    });
   });
 }
 
@@ -58,14 +60,16 @@ function syncDraftPosition() {
   document.addEventListener("drop", (e) => {
     e.preventDefault();
 
-    draft[draggedElementId].left = `${e.clientX - offsetX}px`;
-    draft[draggedElementId].top = `${e.clientY - offsetY}px`;
-    console.log(draft[draggedElementId]);
+    const existingStickerElement = document.getElementById(draggedElementId);
+    if (existingStickerElement) {
+      draft[draggedElementId].left = `${e.clientX - offsetX}px`;
+      draft[draggedElementId].top = `${e.clientY - offsetY}px`;
+      console.log(draft[draggedElementId]);
 
-    if (document.getElementById()) canvas.innerHTML = "";
-    draft.forEach((sticker) => {
-      let stickerElement = generateStickerElement(sticker);
-      canvas.appendChild(stickerElement);
-    });
+      const updatedStickerElement = generateStickerElement(
+        draft[draggedElementId]
+      );
+      existingStickerElement.replaceWith(updatedStickerElement);
+    }
   });
 }
