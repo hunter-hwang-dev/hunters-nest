@@ -12,14 +12,23 @@
   </head>
   <body>
     <div
+      data-name="텍스트 에디터 전체"
       class="w-full border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
     >
-      <div class="px-3 py-2 border-b border-gray-200 dark:border-gray-600">
-        <div class="flex flex-wrap items-center">
+      <div
+        data-name="상단 버튼 바 부분"
+        class="px-3 py-2 border-b border-gray-200 dark:border-gray-600"
+      >
+        <div
+          data-name="이 안에 들어가는 건 다 가로로 평행"
+          class="flex flex-wrap items-center"
+        >
           <div
+            data-name="변환 버튼들"
             class="flex items-center space-x-1 rtl:space-x-reverse flex-wrap"
           >
             <button
+              data-name="json 변환 버튼"
               id="toggleJSONButton"
               data-tooltip-target="tooltip-json"
               data-modal-target="source-code-modal"
@@ -47,6 +56,7 @@
               <span class="sr-only">JSON</span>
             </button>
             <div
+              data-name="json 변환 버튼 설명"
               id="tooltip-json"
               role="tooltip"
               class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700"
@@ -55,6 +65,7 @@
               <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
             <button
+              data-name="html 변환 버튼"
               id="toggleHTMLButton"
               data-tooltip-target="tooltip-html"
               data-modal-target="source-code-modal"
@@ -78,6 +89,7 @@
               <span class="sr-only">HTML</span>
             </button>
             <div
+              data-name="html 변환 버튼 설명"
               id="tooltip-html"
               role="tooltip"
               class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip dark:bg-gray-700"
@@ -86,9 +98,21 @@
               <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
           </div>
+
+          <button
+            data-name="저장 버튼"
+            id="saveButton"
+            type="button"
+            class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-full text-sm px-5 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+          >
+            SAVE
+          </button>
         </div>
       </div>
-      <div class="px-4 py-2 bg-white rounded-b-lg dark:bg-gray-800">
+      <div
+        data-name="텍스트 입력 부분"
+        class="px-4 py-2 bg-white rounded-b-lg dark:bg-gray-800"
+      >
         <label for="wysiwyg-export-example" class="sr-only">Publish post</label>
         <div
           id="wysiwyg-export-example"
