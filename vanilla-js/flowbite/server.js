@@ -2,14 +2,12 @@ const express = require("express");
 const path = require("path"); // path 모듈 불러오기
 const app = express();
 
-// 정적 파일 제공
 app.use(express.static(path.join(__dirname, "public"))); // public 폴더가 정적 파일로 제공됨
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
-});
 
 // 서버 실행
 app.listen(8080, () => {
   console.log("Server is running on http://localhost:8080");
+});
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
 });
