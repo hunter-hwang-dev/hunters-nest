@@ -17,6 +17,11 @@ window.addEventListener("load", function () {
       },
     });
 
+    //미리 localStorage에 저장된 값 있으면 불러오기
+    const savedData = JSON.parse(this.localStorage.getItem("savedData"));
+    console.log(savedData);
+    editor.commands.setContent(savedData);
+
     const sourceCodeModal = FlowbiteInstances.getInstance(
       "Modal",
       "source-code-modal"
@@ -48,5 +53,15 @@ window.addEventListener("load", function () {
           .replace(/</g, "&lt;")
           .replace(/>/g, "&gt;");
       });
+
+    document.getElementById("saveButton").addEventListener("click", () => {
+      this.localStorage.setItem(
+        "savedData",
+        JSON.stringify(editor.getJSON(), null, 2)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+      );
+    });
   }
 });
