@@ -54,7 +54,7 @@ window.addEventListener("load", function () {
           .replace(/>/g, "&gt;");
       });
 
-    document.getElementById("saveButton").addEventListener("click", () => {
+    document.getElementById("saveLocalButton").addEventListener("click", () => {
       this.localStorage.setItem(
         "savedData",
         JSON.stringify(editor.getJSON(), null, 2)
@@ -63,5 +63,17 @@ window.addEventListener("load", function () {
           .replace(/>/g, "&gt;")
       );
     });
+
+    document
+      .getElementById("saveDatabaseButton")
+      .addEventListener("click", () => {
+        fetch("/save-data", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            savedData: localStorage.getItem("savedData"),
+          }),
+        });
+      });
   }
 });
