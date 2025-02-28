@@ -31,5 +31,19 @@ app.get("/", (req, res) => {
 });
 
 app.post("/save-data", async (req, res) => {
-  await db.collection("tiptap").insertOne(req.body);
+  const { savedTime, savedData } = req.body;
+  await db
+    .collection("tiptap")
+    .insertOne({
+      savedData: savedData,
+      savedtime: savedTime,
+    })
+    .then(() => {
+      console.log("Data saved successfully!");
+      res.json({ message: "Data saved successfully!" });
+    })
+    .catch((err) => {
+      console.error("Failed to save data:", err);
+      res.status(500).json({ message: "Failed to save data", error: err });
+    });
 });

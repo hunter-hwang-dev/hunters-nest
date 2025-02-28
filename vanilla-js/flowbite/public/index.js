@@ -71,9 +71,15 @@ window.addEventListener("load", function () {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
+            savedTime: now(),
             savedData: localStorage.getItem("savedData"),
           }),
         });
       });
   }
 });
+
+function now() {
+  const now = new Date().toISOString();
+  return now;
+}
