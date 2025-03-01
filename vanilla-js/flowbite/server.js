@@ -47,3 +47,7 @@ app.post("/save-data", async (req, res) => {
       res.status(500).json({ message: "Failed to save data", error: err });
     });
 });
+
+app.get("/savedlist", (req, res) => {
+  res.sendFile(path.join(__dirname, "savedlist.html"));
+});
